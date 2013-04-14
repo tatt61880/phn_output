@@ -1,0 +1,50 @@
+p,pre,table,ul,ol,blockquote
+{
+    margin-left:30px;
+    margin-right:30px;
+}
+td
+{
+    padding: 0 0.5em 0 0.5em;
+}
+th
+{
+    background:#B0D4E5;
+}
+th, td{
+    border:1px solid black;
+}
+body
+{
+    margin: auto;
+    max-width: 1024px;
+    min-width: 600px;
+    background-color: #B0D4E5;
+}
+#container
+{
+    width: 95%;
+    margin: 15px 15px 15px 15px;
+    background-color: #ffffff;
+    line-height: 1.5em;
+    font-size: 100%;
+}
+h1, h2, h3
+{
+    padding-left: 10px;
+    margin-top: 0.5em;
+}
+h1
+{
+    line-height: 1.4em;
+    background-color: #ffbbff;
+}
+h2
+{
+    line-height: 1.2em;
+    background-color: #ffffbb;
+}
+h3
+{
+    background-color: #bbffff;
+}
