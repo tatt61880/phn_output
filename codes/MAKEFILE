@@ -1,0 +1,68 @@
+# MAKEFILE for phn_output.py (Environment: OS:Windows / nmake.exe)
+# http://dl.dropbox.com/u/9975638/Algodoo/Inkscape/phn_output/index.html
+# vim: fileencoding=utf-8
+# Copyright (C) 2011 - 2012 Tatt61880 (タット) (tatt61880@gmail.com, @tatt61880)
+# Last Modified: 2012/04/21 18:45:45.
+
+PHN_OUTPUT = phn_output
+PYTHON26 = python26
+PYTHON30 = python30
+EXAMPLE = example
+
+all: testX
+
+# Test {{{1
+testX : Pseudotarget
+	$(PYTHON26) $(PHN_OUTPUT).test.py --disable_warnings
+	$(PYTHON30) $(PHN_OUTPUT).test.py --disable_warnings
+test : Pseudotarget
+	$(PYTHON26) $(PHN_OUTPUT).test.py
+test3 : Pseudotarget
+	$(PYTHON30) $(PHN_OUTPUT).test.py
+#}}}1
+
+# Debug {{{1
+debugX : Pseudotarget
+	$(PYTHON26) $(PHN_OUTPUT).test.py --debug --disable_warnings
+debug : Pseudotarget
+	$(PYTHON26) $(PHN_OUTPUT).test.py --debug
+debug3 : Pseudotarget
+	$(PYTHON30) $(PHN_OUTPUT).test.py --debug
+#}}}1
+
+# phn {{{1
+phn: Pseudotarget
+	$(PYTHON26) $(PHN_OUTPUT).py $(EXAMPLE).svg > $(EXAMPLE).phn
+phn3: Pseudotarget
+	$(PYTHON30) $(PHN_OUTPUT).py $(EXAMPLE).svg > $(EXAMPLE).phn
+# }}}1
+
+# Run {{{1
+run: phn
+        start $(EXAMPLE).phn
+run3: phn3
+        start $(EXAMPLE).phn
+#}}}1
+
+zip: phn
+	$(PYTHON26) zip_this_project.py
+
+Pseudotarget:
+
+.SUFFIXES: .svg
+
+.svg.phn:
+	$(PYTHON26) $(PHN_OUTPUT).py $< > $@
+
+help: Pseudotarget
+	@echo --- targets ---
+	@echo - all   : test
+	@echo - test
+	@echo - debug
+	@echo - zip
+	@echo - help
+	@echo - run   : phn
+	@echo - phn
+	@echo - *.phn suffix rule
+
+# vim: shiftwidth=4 tabstop=8 softtabstop=4 fileencoding=utf-8 textwidth=99
