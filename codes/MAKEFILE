@@ -1,39 +1,34 @@
 # MAKEFILE for phn_output.py (Environment: OS:Windows / nmake.exe)
-# http://dl.dropbox.com/u/9975638/Algodoo/Inkscape/phn_output/index.html
 # vim: fileencoding=utf-8
-# Copyright (C) 2011 - 2012 Tatt61880 (タット) (tatt61880@gmail.com, @tatt61880)
-# Last Modified: 2012/04/21 18:45:45.
+#
+# https://github.com/tatt61880/phn_output
+# Copyright (C) 2011 - 2020 tatt61880 (たっと)
+# Last Modified: 2020/05/12 03:41:23.
 
 PHN_OUTPUT = phn_output
-PYTHON26 = python26
-PYTHON30 = python30
+PYTHON30 = python
 EXAMPLE = example
 
-all: testX
+all: test
 
 # Test {{{1
-testX : Pseudotarget
-	$(PYTHON26) $(PHN_OUTPUT).test.py --disable_warnings
-	$(PYTHON30) $(PHN_OUTPUT).test.py --disable_warnings
 test : Pseudotarget
-	$(PYTHON26) $(PHN_OUTPUT).test.py
+	$(PYTHON30) $(PHN_OUTPUT).test.py --disable_warnings
+
 test3 : Pseudotarget
 	$(PYTHON30) $(PHN_OUTPUT).test.py
 #}}}1
 
 # Debug {{{1
-debugX : Pseudotarget
-	$(PYTHON26) $(PHN_OUTPUT).test.py --debug --disable_warnings
 debug : Pseudotarget
-	$(PYTHON26) $(PHN_OUTPUT).test.py --debug
+	$(PYTHON30) $(PHN_OUTPUT).test.py --debug --disable_warnings
+
 debug3 : Pseudotarget
 	$(PYTHON30) $(PHN_OUTPUT).test.py --debug
 #}}}1
 
 # phn {{{1
 phn: Pseudotarget
-	$(PYTHON26) $(PHN_OUTPUT).py $(EXAMPLE).svg > $(EXAMPLE).phn
-phn3: Pseudotarget
 	$(PYTHON30) $(PHN_OUTPUT).py $(EXAMPLE).svg > $(EXAMPLE).phn
 # }}}1
 
@@ -45,14 +40,14 @@ run3: phn3
 #}}}1
 
 zip: phn
-	$(PYTHON26) zip_this_project.py
+	$(PYTHON30) zip_this_project.py
 
 Pseudotarget:
 
 .SUFFIXES: .svg
 
 .svg.phn:
-	$(PYTHON26) $(PHN_OUTPUT).py $< > $@
+	$(PYTHON30) $(PHN_OUTPUT).py $< > $@
 
 help: Pseudotarget
 	@echo --- targets ---

@@ -3,13 +3,11 @@
     <_name>Phn Output</_name>
     <id>org.inkscape.output.phn</id>
     <dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
-    <dependency type="executable" location="extensions">phn_output.py</dependency>
-    <dependency type="executable" location="extensions">cubicsuperpath.py</dependency>
     <output>
         <extension>.phn</extension>
         <mimetype>text/phn</mimetype>
-        <_filetypename>Algodoo scene (*.phn)</_filetypename>
-        <_filetypetooltip>Algodoo scene format</_filetypetooltip>
+        <filetypename>Algodoo scene (*.phn)</filetypename>
+        <filetypetooltip>Algodoo scene format</filetypetooltip>
         <dataloss>true</dataloss>
     </output>
     <script>

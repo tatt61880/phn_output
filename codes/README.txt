@@ -1,15 +1,19 @@
 Phn output (Phun/Algodooユーザー用 Inkscape拡張)
 
-Copyright (C) 2011-2012 Tatt61880 (tatt61880@gmail.com, @tatt61880)
-Last Modified: 2012/05/04 10:58:37.
+https://github.com/tatt61880/phn_output
+Copyright (C) 2011-2020 tatt61880 (たっと)
+Last Modified: 2020/05/12 02:54:55.
 
 平面, バネ, ヒンジ, レーザーポインタ, スラスターは、example.svg の中にあるものをコピペでご利用ください。
 交差している複合パスには未対応です。
 
 使用法は下記URLを御覧ください。
-http://dl.dropbox.com/u/9975638/Algodoo/Inkscape/phn_output/index.html
+http://tatt.ch/phun/phn_output/specification.html
 
 ================================ 更新履歴 ================================
+=== phn_output_v0.1.0, 2020-5-12 ===
+改善: Inkscape v1.0.0に対応
+
 === phn_output_v0.0.6, 2012-5-4 ===
 新規: スラスター ← 始点マーカー付きのline要素 (pathではなくline限定)
 改善: pathのベジエ曲線などをポリゴンに変換すする際にノードが無駄に多くなる場合は削除するようにしました。

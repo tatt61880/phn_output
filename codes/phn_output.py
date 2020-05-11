@@ -3,10 +3,10 @@
 
 """
 phn_output.py (Inkscape extension)
-http://dl.dropbox.com/u/9975638/Algodoo/Inkscape/phn_output/index.html
+https://github.com/tatt61880/phn_output
 
-Copyright (C) 2011-2012 Tatt61880 (タット) (tatt61880@gmail.com, @tatt61880)
-Last Modified: 2012/05/04 09:56:46.
+Copyright (C) 2011-2020 tatt61880 (たっと)
+Last Modified: 2020/05/12 03:32:16.
 """
 
 #TODO Solve intersection of compound path
@@ -15,14 +15,14 @@ Last Modified: 2012/05/04 09:56:46.
 #TODO Scene.Camera support
 #TODO Texture support
 
-__version__ = '0.0.6'
+__version__ = '0.1.0'
 
 import sys
 import re
 from math import *
 from random import random
 import inspect # for __LINE__ info
-from xml.etree.ElementTree import ElementTree, _ElementInterface
+from xml.etree.ElementTree import ElementTree, Element
 
 XMLNS = '{http://www.w3.org/2000/svg}'
 SODIPODI = '{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}'
@@ -621,7 +621,7 @@ class SVG_Style(dict):#{{{
         attributes = {}
         if isinstance(arg, dict):
             attributes.update(arg)
-        elif isinstance(arg, _ElementInterface):
+        elif isinstance(arg, Element):
             for attribute in ('fill', 'fill-opacity', 'stroke', 'stroke-opacity', 'opacity'):
                 if arg.get(attribute):
                     attributes.update({attribute:arg.get(attribute)})
@@ -645,7 +645,6 @@ class SVG_Style(dict):#{{{
 #}}}
 class _D_TOKEN(object): #{{{
     NUMBER_REGEX, COMMAND_REGEX = range(2)
-    __slots__ = ['NUMBER_REGEX', 'COMMAND_REGEX']
 #}}}
 #{{{
 patterns = [
