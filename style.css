@@ -1,50 +1,46 @@
-p,pre,table,ul,ol,blockquote
+*
 {
-    margin-left:30px;
-    margin-right:30px;
+	font-family: "メイリオ","Meiryo","Arial","Verdana","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Osaka","ＭＳ Ｐゴシック","MS PGothic","Sans-Serif";
 }
-td
+pre, pre *
 {
-    padding: 0 0.5em 0 0.5em;
+	font-family: "MS Gothic",'Osaka-Mono',Courier New,Courier,monospace;
+	tab-size: 4;
+	-moz-tab-size: 4;
 }
-th
+span
 {
-    background:#B0D4E5;
+	margin: 5px 0px;
 }
-th, td{
-    border:1px solid black;
-}
-body
+iframe,pre,ul,ol,blockquote,table,input
 {
-    margin: auto;
-    max-width: 1024px;
-    min-width: 600px;
-    background-color: #B0D4E5;
+	margin: 5px 15px;
+}
+p {
+	margin: 15px 15px;
+}
+ul, ol { padding-left: 20px }
+hr { margin: 0px -10px; }
+h1 { margin: 0px -10px; background-color: #FBF; padding-left:  8px; font-weight: bold;   }
+h2 { margin: 0px -10px; background-color: #FFB; padding-left: 12px; font-weight: normal; }
+h3 { margin: 0px -10px; background-color: #BFF; padding-left: 16px; font-weight: normal; }
+h4 { margin: 0px -10px; background-color: #DDD; padding-left: 20px; font-weight: normal; }
+h5 { margin: 0px -10px; background-color: #DDD; padding-left: 24px; font-weight: normal; }
+h6 { margin: 0px -10px; background-color: #DDD; padding-left: 28px; font-weight: normal; }
+table
+{
+	border-collapse: collapse;  border-spacing: 0;
+}
+th { background:#B0D4E5; }
+th, td { padding: 0 0.5em 0 0.5em; border:1px solid black; }
+body {
+	margin: auto;
+	max-width: 1024px;
+	min-width: 800px;
+	background-color: #B0D4E5;
 }
 #container
 {
-    width: 95%;
-    margin: 15px 15px 15px 15px;
-    background-color: #ffffff;
-    line-height: 1.5em;
-    font-size: 100%;
-}
-h1, h2, h3
-{
-    padding-left: 10px;
-    margin-top: 0.5em;
-}
-h1
-{
-    line-height: 1.4em;
-    background-color: #ffbbff;
-}
-h2
-{
-    line-height: 1.2em;
-    background-color: #ffffbb;
-}
-h3
-{
-    background-color: #bbffff;
+	padding: 0px 10px 5px 10px;
+	background-color: #ffffff;
 }
