@@ -46,24 +46,29 @@
 
 === <a id="v0_0_6" href="./zip/phn_output_v0.0.6_2012_05_04_10_59.zip">phn_output_v0.0.6 (zipファイル)</a>, 2012-5-4 ===
 新規: スラスター ← 始点マーカー付きのline要素 (pathではなくline限定)
-改善: pathのベジエ曲線などをポリゴンに変換する際にノードが無駄に多くなる場合は削除するようにしました。
-修正: pathのパーサに不具合があったのを修正しました (ポリゴンが正しく変換されないことがありました.)
+改善: pathのベジエ曲線などをポリゴンに変換する際、
+      ノードが無駄に多くなる場合は削除するようにしました。
+修正: pathのパーサに不具合があったのを修正しました
+      (ポリゴンが正しく変換されないことがありました.)
 
 === <a id="v0_0_5" href="./zip/phn_output_v0.0.5_2012_04_19_08_53.zip">phn_output_v0.0.5 (zipファイル)</a>, 2012-4-19 ===
 変更: xml.dom.minidom から xml.etree.ElementTreeに戻しました。
 修正: python2.3でも動作するように、sortedを使わないようにしました
       (しかし、xml.etree.ElementTreeはpython2.3では標準ではない)。
-修正: 2つの図形に接続されるアタッチメント（バネ、ヒンジ）が正常に接続されない不具合の修正。
+修正: 2つの図形に接続されるアタッチメント（バネ、ヒンジ）が
+      正常に接続されない不具合の修正。
      （下記のブログで報告された不具合に関する修正です。ありがとうございます）
       <a href="http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html">http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html</a>
 
 === <a id="v0_0_4" href="./zip/phn_output_v0.0.4_2011_02_28_20_29.zip">phn_output_v0.0.4 (zipファイル)</a>, 2011-2-28 ===
 新規: 交差しない複合パスに対応しました.
-変更: xml.etree.ElementTree の代わりに xml.dom.minidomを使用するようにしました。
+変更: xml.etree.ElementTree の代わりに
+      xml.dom.minidomを使用するようにしました。
       動作確認済みのPythonに下記を追加:
-      * Python 2.4.4 (#71, Oct 18 2006, 08:34:43) [MSC v.1310 32 bit (Intel)] on win32
-修正: アタッチメント(バネやヒンジなど)の接続判定や穴あきの図形の判定が誤る可能性のあったバグを
-      修正しました.
+      * Python 2.4.4
+        <span style="color:gray; font-style:italic">(#71, Oct 18 2006, 08:34:43) [MSC v.1310 32 bit (Intel)] on win32 </span>
+修正: アタッチメント(バネやヒンジなど)の接続判定や
+      穴あきの図形の判定が誤る可能性のあったバグを修正しました.
 改善: 全般的にリファクタリングを行いました (継続的に開発を行なうため).
 変更: example.svgを少し手直ししました. 気になる場合は下記を御覧ください.
       ・平面の位置を変更
@@ -97,12 +102,16 @@
       角度はphn_output.py内の ARC_NODES_FREQUENCY で変更できます.
 改善: Python3.0でも動作するようにしました (Python 3.0.1で動作確認済み).
       動作確認済みのPython:
-      * Python 2.5.4 <span style="color:gray; font-style:italic">(r254:67916, Dec 23 2008, 15:10:54) [MSC v.1310 32 bit (Intel)] on win32 </span>
-          テストのassertAlmostEquals()がlistに非対応のためにTypeErrorが発生しますが、本体は動作します.
-      * Python 2.6.5 <span style="color:gray; font-style:italic">(r265:79096, Mar 19 2010, 21:48:26) [MSC v.1500 32 bit (Intel)] on win32 </span>
+      * Python 2.5.4
+        <span style="color:gray; font-style:italic">(r254:67916, Dec 23 2008, 15:10:54)[MSC v.1310 32 bit (Intel)] on win32 </span>
+          テストのassertAlmostEquals()が
+          listに非対応のためにTypeErrorが発生しますが、本体は動作します.
+      * Python 2.6.5
+        <span style="color:gray; font-style:italic">(r265:79096, Mar 19 2010, 21:48:26) [MSC v.1500 32 bit (Intel)] on win32 </span>
           本プロジェクトは主に Python 2.6.5で動作確認しています.
           (現時点のInkscapeの最新版(0.48)に同梱されているのがこのバージョンの為)
-      * Python 3.0.1 <span style="color:gray; font-style:italic">(r301:69561, Feb 13 2009, 20:04:18) [MSC v.1500 32 bit (Intel)] on win32 </span>
+      * Python 3.0.1
+        <span style="color:gray; font-style:italic">(r301:69561, Feb 13 2009, 20:04:18) [MSC v.1500 32 bit (Intel)] on win32 </span>
 修正: 小さなバグ(主に例外処理)を幾つか修正しました.
       以前のバージョンでは変換に失敗していた可能性があります.
 変更: example.svg の内容を変更しました.
