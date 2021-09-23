@@ -135,15 +135,15 @@ class testPath(unittest.TestCase):#{{{
 
     def test_path_pos(self):#{{{2
         p = Path(d="M0 0 10 0 10 10 0 10").parse()
-        self.assertAlmostEquals(p['pos'], phn_output.Vector([5, 5]))
+        self.assertAlmostEqual(p['pos'], phn_output.Vector([5, 5]))
     #}}}2
     def test_path_area(self):#{{{2
         p = Path(d="M0 0 10 0 10 10 0 10").parse()
-        self.assertAlmostEquals(p._area, 100)
+        self.assertAlmostEqual(p._area, 100)
     #}}}2
     def test_path_pos_triangle(self):#{{{2
         p = Path(d="M0 0 10 0 5 6").parse()
-        self.assertAlmostEquals(p['pos'], phn_output.Vector([5, 2]))
+        self.assertAlmostEqual(p['pos'], phn_output.Vector([5, 2]))
     #}}}2
     def test_path_laststring_equals_whitespace(self):#{{{2
         p = Path(d="M0 0 10 0 5 6 ").parse()
@@ -151,16 +151,16 @@ class testPath(unittest.TestCase):#{{{
     #}}}2
     def test_path_pos_hollow(self):#{{{2
         p = Path(d="M0 0 10 0 10 10 0 10zM1 1 6,1 6,6 1 6z").parse()
-        self.assertAlmostEquals(p['pos'], phn_output.Vector([5.5, 5.5]))
+        self.assertAlmostEqual(p['pos'], phn_output.Vector([5.5, 5.5]))
     #}}}2
     def test_path_pos_hollow2(self):#{{{2
         p = Path(d="M0 0 10 0 10 10 0 10zM1 1 1,6 6,6 6 1z").parse()
-        self.assertAlmostEquals(p['pos'], phn_output.Vector([5.5, 5.5]))
+        self.assertAlmostEqual(p['pos'], phn_output.Vector([5.5, 5.5]))
     #}}}2
     def test_path_pos_hollow_noncommand_followingZ(self):#{{{2
         # z以下が無視される
         p = Path(d="M0 0 10 0 10 10 0 10z1 1 6,1 6,6 1 6z").parse()
-        self.assertAlmostEquals(p['pos'], phn_output.Vector([5.0, 5.0]))
+        self.assertAlmostEqual(p['pos'], phn_output.Vector([5.0, 5.0]))
     #}}}2
     def test_path_arc_ellipse(self):#{{{2
         p = Path(d="m 95.400003,53.099998 a 8.1000004,15.3 0 1 1 -16.2,0 a 8.1000004,15.3 0 1 1 16.2,0 z").parse()
@@ -169,12 +169,12 @@ class testPath(unittest.TestCase):#{{{
     def test_path_h_v(self):#{{{2
         p = Path(d="M 14 13 h 60 v 60").parse()
         self.assertTrue(isinstance(p, phn_output.Polygon))
-        self.assertAlmostEquals(p['pos'], phn_output.Vector([54.0, 33.0]))
+        self.assertAlmostEqual(p['pos'], phn_output.Vector([54.0, 33.0]))
     #}}}2
     def test_path_H_V(self):#{{{2
         p = Path(d="M 20 30 H 50 V 60").parse()
         self.assertTrue(isinstance(p, phn_output.Polygon))
-        self.assertAlmostEquals(p['pos'], phn_output.Vector([40.0, 40.0]))
+        self.assertAlmostEqual(p['pos'], phn_output.Vector([40.0, 40.0]))
     #}}}2
     def test_path_q(self):#{{{2
         p = Path(d="m 214.28571,452.36218 q 0,0 -239.99999,-692.36218 q -239.99999,-692.36218 357.14286,-74.28571z").parse()
@@ -190,52 +190,52 @@ class testRect(unittest.TestCase):#{{{
         p = Rect(width=100,height=30).parse()
         self.assertTrue(isinstance(p, phn_output._PhunGeometry))
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["size"], tuple([100, 30]))
+        self.assertEqual(p["size"], tuple([100, 30]))
     #}}}2
     def test_rect_rotate90deg(self):
         p = Rect(transform="rotate(90)").parse()
         self.assertTrue(isinstance(p, phn_output._PhunGeometry))
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["angle"], pi/2)
+        self.assertEqual(p["angle"], pi/2)
 
     def test_rect_rotate30deg(self):
         p = Rect(transform="rotate(30)").parse()
-        self.assertAlmostEquals(p['angle'], pi/6)
+        self.assertAlmostEqual(p['angle'], pi/6)
 
     def test_rect_rotate0deg(self):
         p = Rect(transform="rotate(0)").parse()
-        self.assertEquals(p["angle"], 0)
+        self.assertEqual(p["angle"], 0)
 
     def test_rect_rotate3args(self):
         p = Rect(transform="rotate(30 100 200)").parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertAlmostEquals(p['angle'], pi/6)
+        self.assertAlmostEqual(p['angle'], pi/6)
 
     def test_rect_double_transform(self):
         p = Rect(transform="rotate(0) rotate(60)").parse()
-        self.assertAlmostEquals(p["angle"], pi/3)
+        self.assertAlmostEqual(p["angle"], pi/3)
 
     def test_rect_double_transform2(self):
         p = Rect(width=100, height=200, transform="rotate(30) scale(10, 3)").parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertAlmostEquals(p['angle'], pi/6)
-        self.assertEquals(p["size"], (1000,600))
+        self.assertAlmostEqual(p['angle'], pi/6)
+        self.assertEqual(p["size"], (1000,600))
 
     def test_rect_matrix(self):
         p = Rect(width=100, height=200, transform="matrix(2,0,0,1,0,0)").parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["angle"], 0)
-        self.assertEquals(p["size"], (200,200))
+        self.assertEqual(p["angle"], 0)
+        self.assertEqual(p["size"], (200,200))
 
     def test_rect_sclae(self):
         p = Rect(width=100, height=200, transform="scale(2, -1)").parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["size"], (200,200))
+        self.assertEqual(p["size"], (200,200))
 
     def test_rect_void_transform(self):
         p = Rect().parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["angle"], 0)
+        self.assertEqual(p["angle"], 0)
 
     def test_rect_transform2polygon(self):
         p = Rect(transform="scale(10, 2) rotate(30)").parse()
@@ -254,7 +254,7 @@ class testCircle(unittest.TestCase): #{{{
         p = Circle(r=1).parse()
         self.assertTrue(isinstance(p, phn_output._PhunGeometry))
         self.assertTrue(isinstance(p, phn_output.Circle))
-        self.assertEquals(p["radius"], 1)
+        self.assertEqual(p["radius"], 1)
 
     def test_circle_scale(self):
         p = Circle(r=1, transform="scale(2,1)").parse()
@@ -277,8 +277,8 @@ class testInkscapeEllipse(unittest.TestCase):#{{{
         p = PathCircleRadius1m(transform="rotate(30)").parse()
         self.assertTrue(isinstance(p, phn_output.Circle), type(p))
         self.assertTrue('angle' in p)
-        self.assertAlmostEquals(p['angle'], pi/6)
-        self.assertEquals(p['radius'], 1)
+        self.assertAlmostEqual(p['angle'], pi/6)
+        self.assertEqual(p['radius'], 1)
 
     def test_inkscape_ellipse_scaled_ellipse(self):
         p = PathCircleRadius1m(transform="scale(1,2)").parse()
@@ -318,50 +318,50 @@ class testSpringGeom0Geom1(unittest.TestCase): #{{{1
                     Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 1);
-        self.assertEquals(p['geom1'], 2);
+        self.assertEqual(p['geom0'], 1);
+        self.assertEqual(p['geom1'], 2);
 
     def test_1_2_case2(self):
         elements = [Rect(**{"x": -1,  "y":-1, "height":2, "width":200}),
                     Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 1);
-        self.assertEquals(p['geom1'], 2);
+        self.assertEqual(p['geom0'], 1);
+        self.assertEqual(p['geom1'], 2);
 
     def test_2_1_case1(self):
         elements = [Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),
                     Rect(**{"x": -1,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 2);
-        self.assertEquals(p['geom1'], 1);
+        self.assertEqual(p['geom0'], 2);
+        self.assertEqual(p['geom1'], 1);
 
     def test_2_1_case2(self):
         elements = [Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),
                     Rect(**{"x": -1,  "y":-1, "height":2, "width":200}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 2);
-        self.assertEquals(p['geom1'], 1);
+        self.assertEqual(p['geom0'], 2);
+        self.assertEqual(p['geom1'], 1);
 
     def test_none_none_case1(self):
         elements = [Rect(**{"x":100,  "y":-1, "height":2, "width":2}),
                     Rect(**{"x":100,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         objects = parse_elements(elements)
-        self.assertEquals(len(objects), 2); # No Spring
+        self.assertEqual(len(objects), 2); # No Spring
 
     def test_none_none_case2(self):
         elements = [Rect(**{"x":100,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         objects = parse_elements(elements)
-        self.assertEquals(len(objects), 1); # No Spring
+        self.assertEqual(len(objects), 1); # No Spring
 
     def test_none_none_case3(self):
         elements = [Path(**{"d":"m 0,0 10,0"}),]
         objects = parse_elements(elements)
-        self.assertEquals(len(objects), 0); # No Spring
+        self.assertEqual(len(objects), 0); # No Spring
 
     def test_none_none_case4(self):
         elements = [Path(**{"d":"m 0,0 10,0"}),
@@ -369,54 +369,54 @@ class testSpringGeom0Geom1(unittest.TestCase): #{{{1
                     Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),
                     ]
         objects = parse_elements(elements)
-        self.assertEquals(len(objects), 2); # No Spring
+        self.assertEqual(len(objects), 2); # No Spring
 
     def test_1_none_case1(self):
         elements = [Rect(**{"x": -1,  "y":-1, "height":2, "width":2}),
                     Rect(**{"x":100,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 1);
-        self.assertEquals(p['geom1'], 0);
+        self.assertEqual(p['geom0'], 1);
+        self.assertEqual(p['geom1'], 0);
 
     def test_1_none_case2(self):
         elements = [Rect(**{"x": -1,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[1] # spring
-        self.assertEquals(p['geom0'], 1);
-        self.assertEquals(p['geom1'], 0);
+        self.assertEqual(p['geom0'], 1);
+        self.assertEqual(p['geom1'], 0);
 
     def test_1_none_case3(self):
         elements = [Rect(**{"x": -1,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),
                     Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),]
         p = parse_elements(elements)[1] # spring
-        self.assertEquals(p['geom0'], 1);
-        self.assertEquals(p['geom1'], 0);
+        self.assertEqual(p['geom0'], 1);
+        self.assertEqual(p['geom1'], 0);
 
     def test_2_none_case1(self):
         elements = [Rect(**{"x":100,  "y":-1, "height":2, "width":2}),
                     Rect(**{"x": -1,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 2);
-        self.assertEquals(p['geom1'], 0);
+        self.assertEqual(p['geom0'], 2);
+        self.assertEqual(p['geom1'], 0);
 
     def test_none_1_case1(self):
         elements = [Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),
                     Rect(**{"x":100,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 0);
-        self.assertEquals(p['geom1'], 1);
+        self.assertEqual(p['geom0'], 0);
+        self.assertEqual(p['geom1'], 1);
 
     def test_none_2_case1(self):
         elements = [Rect(**{"x":100,  "y":-1, "height":2, "width":2}),
                     Rect(**{"x":  9,  "y":-1, "height":2, "width":2}),
                     Path(**{"d":"m 0,0 10,0"}),]
         p = parse_elements(elements)[2] # spring
-        self.assertEquals(p['geom0'], 0);
-        self.assertEquals(p['geom1'], 2);
+        self.assertEqual(p['geom0'], 0);
+        self.assertEqual(p['geom1'], 2);
 
 
 #}}}1
@@ -426,151 +426,151 @@ class testGroup(unittest.TestCase):#{{{
         elements = ({"transform":"rotate(30)"}, 
                         Rect(**{"transform":"rotate(60)"}))
         p = parse_elements(elements)
-        self.assertAlmostEquals(p[0]['angle'], pi/2)
+        self.assertAlmostEqual(p[0]['angle'], pi/2)
         self.assertTrue(isinstance(p[0], phn_output.Box))
 
     def test_group_scales(self):
         elements = ({"transform":"scale(1,-3)"},
                         Rect(**{"width":100, "height":100, "transform":"scale(10,2)"}))
         p = parse_elements(elements)
-        self.assertEquals(p[0]['size'], phn_output.Vector([1000, 600]))
+        self.assertEqual(p[0]['size'], phn_output.Vector([1000, 600]))
 
     def test_group_scales_triple(self):
         elements = ({"transform":"scale(0.5,-3)"},
                         ({"transform":"scale(1,-3)"},
                             Rect(**{"width":100, "height":100, "transform":"scale(10,2)"})))
         p = parse_elements(elements)[0]
-        self.assertEquals(p['size'], phn_output.Vector([500, 1800]))
+        self.assertEqual(p['size'], phn_output.Vector([500, 1800]))
 
     def test_group_opacity(self):
         elements = ({"style":"opacity:0.2"},
                         ({"opacity":"0.3"},
                             Rect(**{"style":"fill-opacity:0.7;fill:#00FFFF"})))
         p = parse_elements(elements)[0]
-        self.assertAlmostEquals(p['color'][3], 0.042)
+        self.assertAlmostEqual(p['color'][3], 0.042)
 
     def test_group_inherited_color(self):
         elements = ({"style":"fill:red"},
                         Rect(**{"style":""}))
         p = parse_elements(elements)[0]
-        self.assertEquals(p['color'], phn_output.Color([1,0,0,1]))
+        self.assertEqual(p['color'], phn_output.Color([1,0,0,1]))
 
 #}}}
 # ============================================
 class testStyle(unittest.TestCase): #{{{
     def test_style_fill_red(self):
         p = Rect(style='fill:#FF0000').parse()
-        self.assertEquals(p["color"], phn_output.Color([1, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([1, 0, 0, 1]))
 
     def test_style_fill_red2(self):
         p = Rect(style='fill:#F00').parse()
-        self.assertEquals(p["color"], phn_output.Color([1, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([1, 0, 0, 1]))
 
     def test_style_fill_red3(self):
         p = Rect(style='fill:rgb(100%,0,0)').parse()
-        self.assertEquals(p["color"], phn_output.Color([1, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([1, 0, 0, 1]))
 
     def test_style_fill_red4(self):
         p = Rect(style='fill:rgb(255,0,0)').parse()
-        self.assertEquals(p["color"], phn_output.Color([1, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([1, 0, 0, 1]))
 
     def test_style_fill_010101(self):
         p = Rect(style="fill:#0180B9").parse()
-        self.assertEquals(p["color"], phn_output.Color([1/255., 0x80/255., 1.0*0xB9/0xFF, 1.0]))
+        self.assertEqual(p["color"], phn_output.Color([1/255., 0x80/255., 1.0*0xB9/0xFF, 1.0]))
 
     def test_style_fill_lowercase(self):
         p = Rect(style="fill:#ff00ff").parse()
-        self.assertEquals(p["color"], phn_output.Color([1, 0, 1, 1]))
+        self.assertEqual(p["color"], phn_output.Color([1, 0, 1, 1]))
 
     def test_style_notGiven(self):
         p = Rect(style="").parse()
-        self.assertEquals(p["color"], phn_output.Color([0, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([0, 0, 0, 1]))
 
     def test_style_none(self):
         p = Rect(style="fill:none").parse()
-        self.assertEquals(p["color"][3], 0)
+        self.assertEqual(p["color"][3], 0)
 
     def test_style_fill_none_strokeFF00FF(self):
         p = Rect(style="fill:none;stroke:#FF00FF").parse()
-        self.assertEquals(p["color"], phn_output.Color([1, 0, 1, 0]))
+        self.assertEqual(p["color"], phn_output.Color([1, 0, 1, 0]))
 
     def test_style_invalid(self):
         p = Rect(style="a").parse()
-        self.assertEquals(p["color"], phn_output.Color([0, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([0, 0, 0, 1]))
 
     def test_style_invalid2(self):
         p = Rect(style="a; fill:#00FF00").parse()
-        self.assertEquals(p["color"], phn_output.Color([0, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([0, 0, 0, 1]))
 
     def test_style_invalid3(self):
         p = Rect(style="fill:blackk").parse()
-        self.assertEquals(p["color"], phn_output.Color([0, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([0, 0, 0, 1]))
 
     def test_style_invalid4(self):
         p = Rect(style="fill:rgb(1,2,3,4)").parse()
-        self.assertEquals(p["color"], phn_output.Color([0, 0, 0, 1]))
+        self.assertEqual(p["color"], phn_output.Color([0, 0, 0, 1]))
 
     def test_style_fill_opacity(self):
         p = Rect(style="fill:#FF0000; opacity:0.5").parse()
-        self.assertEquals(p["color"], phn_output.Color([1, 0, 0, 0.5]))
+        self.assertEqual(p["color"], phn_output.Color([1, 0, 0, 0.5]))
 
     def test_style_fill_string(self):
         p = Rect(style="fill:blue;").parse()
-        self.assertEquals(p["color"], phn_output.Color([0, 0, 1, 1]))
+        self.assertEqual(p["color"], phn_output.Color([0, 0, 1, 1]))
 
     def test_style_fill_none_stroke_none(self):
         p = Rect(style="fill:none; stroke:none").parse()
-        self.assertEquals(p["color"], phn_output.Color([0, 0, 0, 0]))
+        self.assertEqual(p["color"], phn_output.Color([0, 0, 0, 0]))
 #}}}
 # ============================================
 class testMatrix(unittest.TestCase): #{{{
     def test_matrix(self):
         p = Rect(width=100, height=200, transform="scale(2, -1)").parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["size"], (200,200))
+        self.assertEqual(p["size"], (200,200))
 
     def test_matrix_invalid(self):
         p = Rect(width=100, height=200, transform="scale(2, -1").parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["size"], (100,200))
+        self.assertEqual(p["size"], (100,200))
 
     def test_matrix_invalid2(self):
         p = Rect(width=100, height=200, transform="scale(2, -1, 3)").parse()
         self.assertTrue(isinstance(p, phn_output.Box))
-        self.assertEquals(p["size"], (100,200))
+        self.assertEqual(p["size"], (100,200))
 #}}}
 class testVector(unittest.TestCase):#{{{
     def test_vector_add(self):
         a = phn_output.Vector([1,2])
         b = phn_output.Vector([3,4])
-        self.assertEquals(a+b, phn_output.Vector([4, 6]))
+        self.assertEqual(a+b, phn_output.Vector([4, 6]))
 
     def test_vector_pos(self):
         a = phn_output.Vector([1,2])
-        self.assertEquals(+a, phn_output.Vector([1, 2]))
+        self.assertEqual(+a, phn_output.Vector([1, 2]))
 
     def test_vector_neg(self):
         a = phn_output.Vector([1,2])
-        self.assertEquals(-a, phn_output.Vector([-1, -2]))
+        self.assertEqual(-a, phn_output.Vector([-1, -2]))
 
     def test_vector_norm(self):
         a = phn_output.Vector([3,4])
-        self.assertEquals(abs(a), 5)
+        self.assertEqual(abs(a), 5)
 #}}}
 # ============================================
 
 def check_vecs(self, original, expected, received):#{{{1
-    self.assertEquals(len(expected), len(received))
+    self.assertEqual(len(expected), len(received))
     for a, b in zip(expected, received):
         self.assertTrue(a[0] == b[0] and a[1] == b[1],
                 "\nvecs:    " + str(original)+ "\nExpected:" + repr(expected) + "\nReceived:" +
                 repr(received))
 #}}}1
 def check_surfaces(self, original, expected_surfaces, received_surfaces): #{{{1
-    self.assertEquals(len(expected_surfaces), len(received_surfaces),
+    self.assertEqual(len(expected_surfaces), len(received_surfaces),
             "\nOriginal:    " + str(original)+ "\nExpected:" + repr(expected_surfaces) + "\nReceived:" + repr(received_surfaces))
     for i, (expected_vecs, my_answer_vecs) in enumerate(zip(expected_surfaces, received_surfaces)):
-        self.assertEquals(len(expected_vecs), len(my_answer_vecs),
+        self.assertEqual(len(expected_vecs), len(my_answer_vecs),
                 "\nOriginal:    " + str(original)+ "\nExpected[" + str(i) + "]:" + repr(expected_vecs) + "\nReceived[" + str(i) + "]:" + repr(my_answer_vecs))
         for a, b in zip(expected_vecs, my_answer_vecs):
             self.assertTrue(a[0] == b[0] and a[1] == b[1],
@@ -695,7 +695,7 @@ class testCompoundPaths(unittest.TestCase): #{{{
 #        phun_objects = parse_elements(Path(d=path))
 #        expected = [[[0,0]]] #FIXME
 #
-#        self.assertEquals(len(phun_objects), 1)
+#        self.assertEqual(len(phun_objects), 1)
 #        check_surfaces(self, path, expected, phun_objects[0]['surfaces'])
 #    #}}}2
     def test_compoind_path_2objects(self): #{{{2
@@ -750,7 +750,7 @@ class testComplexCompoundPaths(unittest.TestCase): #{{{1
         check_surfaces(self, path, self.expected0, phun_objects[0]['surfaces'])
         self.assertTrue(len(phun_objects) != 1, len(phun_objects))
         check_surfaces(self, path, self.expected1, phun_objects[1]['surfaces'])
-        self.assertEquals(len(phun_objects), 2, "Wasteful surfaces:" + repr(phun_objects[-1]['surfaces']))
+        self.assertEqual(len(phun_objects), 2, "Wasteful surfaces:" + repr(phun_objects[-1]['surfaces']))
 
     def test_compoind_path_triplet1(self): #{{{2
         self.check_triplet(self.path1 + self.path2 + self.path3)
@@ -774,13 +774,13 @@ class testComplexCompoundPaths(unittest.TestCase): #{{{1
         path = self.path1 + self.path4 + self.path5
         phun_objects = parse_elements(Path(d=path))
         check_surfaces(self, path, self.expected2, phun_objects[0]['surfaces'])
-        self.assertEquals(len(phun_objects), 1)
+        self.assertEqual(len(phun_objects), 1)
     #}}}2
     def test_compoind_path_triplet8(self): #{{{2
         path = self.path4 + self.path5 + self.path1
         phun_objects = parse_elements(Path(d=path))
         check_surfaces(self, path, self.expected2, phun_objects[0]['surfaces'])
-        self.assertEquals(len(phun_objects), 1)
+        self.assertEqual(len(phun_objects), 1)
     #}}}2
 #}}}1
 
@@ -790,7 +790,7 @@ class testSVG_Path(unittest.TestCase): #{{{1
     def checkSVG(self, _path, _ans):
         str_path = str(_path)
         str_ans = str(_ans)
-        self.assertEquals(str_path, str_ans, "\n       path = " + str_path + "\nIt should be: " + str_ans)
+        self.assertEqual(str_path, str_ans, "\n       path = " + str_path + "\nIt should be: " + str_ans)
         
     def test_M_withImplicitL(self):
         path = phn_output.SVG_Path("M 0 5 10 20 30 40")

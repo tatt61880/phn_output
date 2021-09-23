@@ -34,9 +34,9 @@ phn: Pseudotarget
 
 # Run {{{1
 run: phn
-        start $(EXAMPLE).phn
+	start $(EXAMPLE).phn
 run3: phn3
-        start $(EXAMPLE).phn
+	start $(EXAMPLE).phn
 #}}}1
 
 zip: phn
