@@ -1,57 +1,51 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="ja">
+<head>
+  <title>Inkscape用 phn出力拡張 更新履歴</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css">
+  <style type="text/css">
+    body {
+      min-width: 1024px;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <h1>Inkscape用 phn出力拡張 更新履歴</h1>
+  <p>
+    <b>日本語(Japanese), <del>English</del> (Under construction)</b><!--<a href="./changes_en.html">English</a></b>--><br>
+    <a href="./index.html">紹介ページへ戻る</a>
+  </p>
 
-    <head>
-        <style type="text/css">
-            @import "style.css";
-            body
-            {
-                min-width: 1024px;
-            }
-        </style>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inkscape用 phn出力拡張 更新履歴</title>
-    </head>
-    <body>
-        <div id="container">
-            <h1>Inkscape用 phn出力拡張 更新履歴</h1>
-            <p>
-            Last Modified: 2020/05/12 03:00:08.
-            <br>
-            <b>日本語(Japanese), <del>English</del> (Under construction)</b><!--<a href="./changes_en.html">English</a></b>--><br>
-        <a href="./index.html">紹介ページへ戻る</a>
+  <h2 id="contents">目次</h2>
+  <ul>
+    <li><a href="#v0_1_0">v0.1.0 2020-05-12</a>
+    <li><a href="#v0_0_6">v0.0.6 2012-05-04</a>
+    <li><a href="#v0_0_5">v0.0.5 2012-04-19</a>
+    <li><a href="#v0_0_4">v0.0.4 2011-02-28</a>
+    <li><a href="#v0_0_3">v0.0.3 2011-02-19</a>
+    <li><a href="#v0_0_2b">v0.0.2b 2011-02-13</a>
+    <li><a href="#v0_0_2a">v0.0.2a 2011-02-13</a>
+    <li><a href="#v0_0_2">v0.0.2 2011-02-13</a>
+    <li><a href="#v0_01">v0.01 2011-02-09</a>
+  </ul>
 
-        </p>
-        <hr>
-
-        <h2 id="contents">目次</h2>
-        <ul>
-            <li><a href="#v0_1_0">v0.1.0 2020-5-12</a>
-            <li><a href="#v0_0_6">v0.0.6 2012-5-04</a>
-            <li><a href="#v0_0_5">v0.0.5 2012-4-19</a>
-            <li><a href="#v0_0_4">v0.0.4 2011-2-28</a>
-            <li><a href="#v0_0_3">v0.0.3 2011-2-19</a>
-            <li><a href="#v0_0_2b">v0.0.2b 2011-2-13</a>
-            <li><a href="#v0_0_2a">v0.0.2a 2011-2-13</a>
-            <li><a href="#v0_0_2">v0.0.2 2011-2-13</a>
-            <li><a href="#v0_01">v0.01 2011-2-9</a>
-        </ul>
-
-        <hr>
+  <hr>
 <pre>
-=== <a id="v0_1_0" href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip">phn_output_v0.1.0 (zipファイル)</a>, 2020-5-12 ===
+=== <a id="v0_1_0" href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip">phn_output_v0.1.0 (zipファイル)</a>, 2020-05-12 ===
 改善: Inkscape v1.0.0に対応
 インストール手順は下記のページを読んでください。
-<a href="http://tatt.ch/phun/phn_output/specification.html#at_first">http://tatt.ch/phun/phn_output/specification.html#at_first</a>
+<a href="./specification.html#at_first">./specification.html#at_first</a>
 
-=== <a id="v0_0_6" href="./zip/phn_output_v0.0.6_2012_05_04_10_59.zip">phn_output_v0.0.6 (zipファイル)</a>, 2012-5-4 ===
+=== <a id="v0_0_6" href="./zip/phn_output_v0.0.6_2012_05_04_10_59.zip">phn_output_v0.0.6 (zipファイル)</a>, 2012-05-04 ===
 新規: スラスター ← 始点マーカー付きのline要素 (pathではなくline限定)
 改善: pathのベジエ曲線などをポリゴンに変換する際、
       ノードが無駄に多くなる場合は削除するようにしました。
 修正: pathのパーサに不具合があったのを修正しました
       (ポリゴンが正しく変換されないことがありました.)
 
-=== <a id="v0_0_5" href="./zip/phn_output_v0.0.5_2012_04_19_08_53.zip">phn_output_v0.0.5 (zipファイル)</a>, 2012-4-19 ===
+=== <a id="v0_0_5" href="./zip/phn_output_v0.0.5_2012_04_19_08_53.zip">phn_output_v0.0.5 (zipファイル)</a>, 2012-04-19 ===
 変更: xml.dom.minidom から xml.etree.ElementTreeに戻しました。
 修正: python2.3でも動作するように、sortedを使わないようにしました
       (しかし、xml.etree.ElementTreeはpython2.3では標準ではない)。
@@ -60,7 +54,7 @@
      （下記のブログで報告された不具合に関する修正です。ありがとうございます）
       <a href="http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html">http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html</a>
 
-=== <a id="v0_0_4" href="./zip/phn_output_v0.0.4_2011_02_28_20_29.zip">phn_output_v0.0.4 (zipファイル)</a>, 2011-2-28 ===
+=== <a id="v0_0_4" href="./zip/phn_output_v0.0.4_2011_02_28_20_29.zip">phn_output_v0.0.4 (zipファイル)</a>, 2011-02-28 ===
 新規: 交差しない複合パスに対応しました.
 変更: xml.etree.ElementTree の代わりに
       xml.dom.minidomを使用するようにしました。
@@ -82,7 +76,7 @@
 <pre>
       ・ヒンジのマーカーの位置を変更 (中心でスナップしやすいように)
 
-=== <a id="v0_0_3" href="./zip/phn_output_v0.0.3_2011_02_19_19_42.zip">phn_output_v0.0.3 (zipファイル)</a>, 2011-2-19 ===
+=== <a id="v0_0_3" href="./zip/phn_output_v0.0.3_2011_02_19_19_42.zip">phn_output_v0.0.3 (zipファイル)</a>, 2011-02-19 ===
 新規: モーター ← marker-start要素を持つ真円
 改善: 自己交差したパスで記述されたpathに対応しました.
       (複合パスで記述された図形には未対応です.)
@@ -116,14 +110,14 @@
       以前のバージョンでは変換に失敗していた可能性があります.
 変更: example.svg の内容を変更しました.
 
-=== <a id="v0_0_2b" href="./zip/phn_output_v0.0.2b_2011_02_13_22_10.zip">phn_output_v0.0.2b (zipファイル)</a>, 2011-2-13 ===
+=== <a id="v0_0_2b" href="./zip/phn_output_v0.0.2b_2011_02_13_22_10.zip">phn_output_v0.0.2b (zipファイル)</a>, 2011-02-13 ===
 変更: 平面の境界線をオフにしました (drawBorderをfalseにしました).
 修正: 楕円が変換できないバグを修正しました.
 
-=== <a id="v0_0_2a" href="./zip/phn_output_v0.0.2a_2011_02_13_20_56.zip">phn_output_v0.0.2a (zipファイル)</a>, 2011-2-13 ===
+=== <a id="v0_0_2a" href="./zip/phn_output_v0.0.2a_2011_02_13_20_56.zip">phn_output_v0.0.2a (zipファイル)</a>, 2011-02-13 ===
 修正: 穴あき図形の重心位置が誤っていたので修正しました.
 
-=== <a id="v0_0_2" href="./zip/phn_output_v0.0.2_2011_02_13_17_36.zip">phn_output_v0.0.2 (zipファイル)</a>, 2011-2-13 ===
+=== <a id="v0_0_2" href="./zip/phn_output_v0.0.2_2011_02_13_17_36.zip">phn_output_v0.0.2 (zipファイル)</a>, 2011-02-13 ===
 新規: バネ     ← line要素 (path要素ではなくline要素限定なので注意)
 新規: ヒンジ   ← 中点マーカー付きの真円形 (マーカーの種類は関係なし)
 新規: レーザー ← 終点マーカー付きのline要素 (pathではなくline限定)
@@ -145,7 +139,7 @@
 修正: 平面の色を修正 (v0.01で常に黒色になっていたので).
 
 
-=== <a id="v0_01" href="./zip/phn_output_v0.01_2011_02_09_00_10.zip">phn_output_v0.01 (zipファイル)</a>, 2011-2-9 ===
+=== <a id="v0_01" href="./zip/phn_output_v0.01_2011_02_09_00_10.zip">phn_output_v0.01 (zipファイル)</a>, 2011-02-09 ===
 【変換内容】
 ポリゴン   ← path要素, 変形したrect/circle/ellipse要素.
 ボックス   ← rect要素 (角が丸かったり、transformにより平行四辺形になっている場合はpath.
@@ -156,27 +150,18 @@
 トレーサー ← styleにfilter属性付きの真円形.
               ※ フィルターが付いている以外の条件はサークルと同じ)
 </pre>
-        <p>
-        <a href="./index.html">紹介ページへ戻る</a>
-        </p>
 
-        <hr>
+  <hr>
 
-        <p>
-        Copyright (C) tatt61880 (たっと)  ---- Twitterアカウント <a href="http://twitter.com/#!/tatt61880">@tatt61880</a>
-        <br>
-        </p>
+  <p>
+    <a href="./index.html">紹介ページへ戻る</a>
+  </p>
 
-        <p>
-        <a href="http://validator.w3.org/check?uri=referer"><img
-            style="border:0;width:88px;height:31px"
-            src="http://www.w3.org/Icons/valid-html401"
-            alt="Valid HTML 4.01 Strict"></a>
-        <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
-            style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!"></a>
-        </p>
-    </div>
+  <hr>
+
+  <p>
+    Copyright (C) tatt61880 (たっと)  ---- Twitterアカウント <a href="https://twitter.com/tatt61880">@tatt61880</a>
+  </p>
+</div>
 </body>
 </html>

@@ -8,7 +8,7 @@ Last Modified: 2020/05/12 02:54:55.
 交差している複合パスには未対応です。
 
 使用法は下記URLを御覧ください。
-http://tatt.ch/phun/phn_output/specification.html
+<a href="https://tatt61880.github.io/phn_output/specification.html">https://tatt61880.github.io/phn_output/specification.html</a>
 
 ================================ 更新履歴 ================================
 === phn_output_v0.1.0, 2020-5-12 ===
