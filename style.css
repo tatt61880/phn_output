@@ -55,8 +55,7 @@ th, td {
 
 body {
   margin: auto;
-  max-width: 1024px;
-  min-width: 800px;
+  width: 1024px;
   background-color: #B0D4E5;
 }
 
