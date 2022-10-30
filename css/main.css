@@ -1,7 +1,3 @@
-html {
-  font-family: "メイリオ","Meiryo","Arial","Verdana","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Osaka","ＭＳ Ｐゴシック","MS PGothic","Sans-Serif";
-}
-
 body {
   margin: 0;
   background-color: #ccffff;
@@ -14,53 +10,60 @@ body {
   background-color: white;
 }
 
-pre, pre * {
-  font-family: "MS Gothic",'Osaka-Mono',Courier New,Courier,monospace;
+pre,
+pre * {
+  font-family: "MS Gothic", Osaka-Mono, "Courier New", Courier, monospace;
   tab-size: 4;
-  -moz-tab-size: 4;
 }
 
 span {
   margin: 5px 15px;
 }
 
-iframe,pre,ul,ol,blockquote,table,input {
+iframe,
+pre,
+ul,
+ol,
+blockquote,
+table,
+input {
   margin: 5px 15px;
 }
 
 p {
-  margin: 15px 15px;
+  margin: 15px;
 }
 
-ul, ol {
+ul,
+ol {
   padding-left: 20px;
 }
 
 h1 {
   margin: 0;
   padding: 0 10px;
-  background-color: #FBF;
+  background-color: #ffbbff;
   font-weight: bold;
 }
 
 h2 {
-  margin: 0px;
+  margin: 0;
   padding: 0 10px;
-  background-color: #FFB;
+  background-color: #ffffbb;
   font-weight: normal;
 }
 
-table
-{
+table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 th {
-  background: #B0D4E5;
+  background: #b0d4e5;
 }
 
-th, td {
+th,
+td {
   padding: 0.5em;
   border: 1px solid black;
 }
