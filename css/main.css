@@ -1,5 +1,17 @@
-* {
+html {
   font-family: "メイリオ","Meiryo","Arial","Verdana","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Osaka","ＭＳ Ｐゴシック","MS PGothic","Sans-Serif";
+}
+
+body {
+  margin: 0;
+  background-color: #ccffff;
+}
+
+#contents {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: white;
 }
 
 pre, pre * {
@@ -9,7 +21,7 @@ pre, pre * {
 }
 
 span {
-  margin: 5px 0px;
+  margin: 5px 15px;
 }
 
 iframe,pre,ul,ol,blockquote,table,input {
@@ -25,16 +37,16 @@ ul, ol {
 }
 
 h1 {
-  margin: 0px -10px;
+  margin: 0;
+  padding: 0 10px;
   background-color: #FBF;
-  padding-left: 8px;
   font-weight: bold;
 }
 
 h2 {
-  margin: 0px -10px;
+  margin: 0px;
+  padding: 0 10px;
   background-color: #FFB;
-  padding-left: 12px;
   font-weight: normal;
 }
 
@@ -51,16 +63,4 @@ th {
 th, td {
   padding: 0.5em;
   border: 1px solid black;
-}
-
-body {
-  margin: auto;
-  width: 1024px;
-  background-color: #B0D4E5;
-}
-
-#container
-{
-  padding: 0px 10px 5px;
-  background-color: #ffffff;
 }
