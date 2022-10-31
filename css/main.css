@@ -5,8 +5,8 @@ body {
 
 #contents {
   width: 1024px;
-  margin: 0 auto;
   padding: 0;
+  margin: 0 auto;
   background-color: white;
 }
 
@@ -40,22 +40,22 @@ ol {
 }
 
 h1 {
-  margin: 0;
   padding: 0 10px;
-  background-color: #ffbbff;
+  margin: 0;
   font-weight: bold;
+  background-color: #ffbbff;
 }
 
 h2 {
-  margin: 0;
   padding: 0 10px;
-  background-color: #ffffbb;
+  margin: 0;
   font-weight: normal;
+  background-color: #ffffbb;
 }
 
 table {
-  border-collapse: collapse;
   border-spacing: 0;
+  border-collapse: collapse;
 }
 
 th {
