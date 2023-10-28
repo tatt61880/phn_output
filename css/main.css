@@ -45,14 +45,16 @@ h1 {
   padding: 0 10px;
   margin: 0;
   font-weight: bold;
-  background-color: #ffbbff;
+  color: #000055;
+  background-color: #c0cbff;
 }
 
 h2 {
   padding: 0 10px;
   margin: 0;
-  font-weight: normal;
-  background-color: #ffffbb;
+  font-weight: bold;
+  color: #113300;
+  background-color: #aadd88;
 }
 
 table {
@@ -61,7 +63,9 @@ table {
 }
 
 th {
-  background: #b0d4e5;
+  font-weight: bold;
+  color: #000055;
+  background: #c0cbff;
 }
 
 th,
