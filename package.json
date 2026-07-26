@@ -12,18 +12,19 @@
   "bugs": {
     "url": "https://github.com/tatt61880/phn_output/issues"
   },
-  "homepage": "https://github.com/tatt61880/phn_output",
+  "homepage": "https://tatt61880.github.io/phn_output/",
   "scripts": {
     "htmlhint": "htmlhint ./*.html",
     "stylelint": "stylelint ./css/*.css --fix"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/eslint-parser": "^7.18.9",
-    "eslint": "^8.21.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.6.0",
     "htmlhint": "^1.1.4",
-    "stylelint": "^14.9.1",
-    "stylelint-config-recess-order": "^3.0.0",
-    "stylelint-config-standard": "^26.0.0"
+    "prettier": "^2.8.2",
+    "stylelint": "^17.14.1",
+    "stylelint-config-recess-order": "^4.2.0",
+    "stylelint-config-standard": "^40.0.0"
   }
 }
