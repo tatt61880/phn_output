@@ -13,7 +13,7 @@ body {
 
 pre,
 pre * {
-  font-family: "MS Gothic", Osaka-Mono, "Courier New", Courier, monospace;
+  font-family: 'MS Gothic', Osaka-Mono, 'Courier New', Courier, monospace;
   tab-size: 4;
 }
 
