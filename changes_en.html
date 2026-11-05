@@ -3,30 +3,142 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Phn_output for Inkscape Changes</title>
-  <link rel="icon" type="image/x-icon" href="./images/favicon.png?2026.04.21">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse release notes and download the current and previous versions of phn output for Inkscape.">
+  <title>Version history | phn output for Inkscape</title>
+  <link rel="icon" type="image/png" href="./images/favicon.png?2026.04.21">
+  <link rel="alternate" hreflang="ja" href="./changes.html">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-  <div id="contents">
-    <h1>Phn_output for Inkscape Changes</h1>
-    <p>
-      <b><a href="./changes.html">日本語(Japanese)</a>, English</b> <br>
-      <a href="./index_en.html">Back to Home</a>
-    </p>
+  <a class="skip-link" href="#contents">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index_en.html">phn_output</a>
+      <nav class="site-nav" aria-label="Main menu">
+        <a href="./index_en.html">Overview</a>
+        <a href="./specification_en.html">Specification</a>
+        <a href="./changes_en.html" aria-current="page">History</a>
+      </nav>
+      <nav class="languages" aria-label="Language">
+        <a lang="ja" hreflang="ja" href="./changes.html">日本語</a>
+        <span aria-hidden="true">/</span>
+        <span lang="en">English</span>
+      </nav>
+    </div>
+  </header>
 
-    <p>
-      Under construction...
-    </p>
+  <main class="container" id="contents">
+    <h1>Version history</h1>
 
-    <hr>
+    <p>Release summaries and downloads. The <a lang="ja" href="./changes.html">日本語</a> archive contains the full historical notes.</p>
 
-    <p>
-      This HTML is described by Tatt (tatt61880) ---- Twitter: <a href="https://twitter.com/tatt61880">@tatt61880</a>
-    </p>
-  </div>
+    <nav class="jump-links" aria-label="Versions">
+      <a href="#v0_1_0">v0.1.0</a>
+      <a href="#v0_0_6">v0.0.6</a>
+      <a href="#v0_0_5">v0.0.5</a>
+      <a href="#v0_0_4">v0.0.4</a>
+      <a href="#v0_0_3">v0.0.3</a>
+      <a href="#v0_0_2b">v0.0.2b</a>
+      <a href="#v0_0_2a">v0.0.2a</a>
+      <a href="#v0_0_2">v0.0.2</a>
+      <a href="#v0_01">v0.01</a>
+    </nav>
+
+    <section class="release" id="v0_1_0">
+      <div class="release-heading">
+        <h2>v0.1.0</h2>
+        <time datetime="2020-05-12">2020-05-12</time>
+        <a href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip" download aria-label="Download v0.1.0 ZIP">Download ZIP</a>
+      </div>
+      <p>Added support for Inkscape 1.0.0.</p>
+      <p><a href="./specification_en.html#at_first">Installation instructions</a></p>
+    </section>
+
+    <section class="release" id="v0_0_6">
+      <div class="release-heading">
+        <h2>v0.0.6</h2>
+        <time datetime="2012-05-04">2012-05-04</time>
+        <a href="./zip/phn_output_v0.0.6_2012_05_04_10_59.zip" download aria-label="Download v0.0.6 ZIP">Download ZIP</a>
+      </div>
+      <p>Added thrusters for SVG line elements with start markers. Reduced unnecessary nodes when converting Bézier curves and other paths to polygons. Fixed a path parser bug that could produce incorrect polygons.</p>
+    </section>
+
+    <section class="release" id="v0_0_5">
+      <div class="release-heading">
+        <h2>v0.0.5</h2>
+        <time datetime="2012-04-19">2012-04-19</time>
+        <a href="./zip/phn_output_v0.0.5_2012_04_19_08_53.zip" download aria-label="Download v0.0.5 ZIP">Download ZIP</a>
+      </div>
+      <p>Switched back to xml.etree.ElementTree and removed the dependency on sorted() for Python 2.3. ElementTree was not included in the Python 2.3 standard library. Fixed springs and hinges that failed to attach to two objects.</p>
+    </section>
+
+    <section class="release" id="v0_0_4">
+      <div class="release-heading">
+        <h2>v0.0.4</h2>
+        <time datetime="2011-02-28">2011-02-28</time>
+        <a href="./zip/phn_output_v0.0.4_2011_02_28_20_29.zip" download aria-label="Download v0.0.4 ZIP">Download ZIP</a>
+      </div>
+      <p>Added support for non-intersecting compound paths. Fixed attachment and hole detection. Switched to xml.dom.minidom, tested with Python 2.4.4, and refactored the code. Updated the example drawing, grid and snapping settings.</p>
+    </section>
+
+    <section class="release" id="v0_0_3">
+      <div class="release-heading">
+        <h2>v0.0.3</h2>
+        <time datetime="2011-02-19">2011-02-19</time>
+        <a href="./zip/phn_output_v0.0.3_2011_02_19_19_42.zip" download aria-label="Download v0.0.3 ZIP">Download ZIP</a>
+      </div>
+      <p>Added motors, self-intersecting paths, SVG polygons, and springs made from two-point paths. Exported scenes can now include the original SVG as a comment. Plane color now uses the fill, with a special case for an empty fill (none).</p>
+      <p>Improved arc approximation, added Python 3 support, fixed several errors, and updated example.svg.</p>
+    </section>
+
+    <section class="release" id="v0_0_2b">
+      <div class="release-heading">
+        <h2>v0.0.2b</h2>
+        <time datetime="2011-02-13">2011-02-13</time>
+        <a href="./zip/phn_output_v0.0.2b_2011_02_13_22_10.zip" download aria-label="Download v0.0.2b ZIP">Download ZIP</a>
+      </div>
+      <p>Disabled plane borders and fixed ellipse conversion.</p>
+    </section>
+
+    <section class="release" id="v0_0_2a">
+      <div class="release-heading">
+        <h2>v0.0.2a</h2>
+        <time datetime="2011-02-13">2011-02-13</time>
+        <a href="./zip/phn_output_v0.0.2a_2011_02_13_20_56.zip" download aria-label="Download v0.0.2a ZIP">Download ZIP</a>
+      </div>
+      <p>Fixed the center of mass for shapes with holes.</p>
+    </section>
+
+    <section class="release" id="v0_0_2">
+      <div class="release-heading">
+        <h2>v0.0.2</h2>
+        <time datetime="2011-02-13">2011-02-13</time>
+        <a href="./zip/phn_output_v0.0.2_2011_02_13_17_36.zip" download aria-label="Download v0.0.2 ZIP">Download ZIP</a>
+      </div>
+      <p>Added springs, hinges, and laser pens. Reduced the number of exported coordinates and simplified the example drawing. The converter can run independently of Inkscape with Python. Improved warnings and fixed plane color.</p>
+    </section>
+
+    <section class="release" id="v0_01">
+      <div class="release-heading">
+        <h2>v0.01</h2>
+        <time datetime="2011-02-09">2011-02-09</time>
+        <a href="./zip/phn_output_v0.01_2011_02_09_00_10.zip" download aria-label="Download v0.01 ZIP">Download ZIP</a>
+      </div>
+      <p>Initial release. Exported polygons, boxes, circles, planes, and tracers.</p>
+    </section>
+
+    <p class="back-link"><a href="#contents">Back to version history</a></p>
+  </main>
+
+  <footer class="container site-footer">
+    <span>© tatt61880 (Tatt)</span>
+    <div>
+      <a href="https://github.com/tatt61880/phn_output">GitHub</a>
+      <a href="https://twitter.com/tatt61880">@tatt61880</a>
+    </div>
+  </footer>
 </body>
 
 </html>

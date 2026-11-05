@@ -3,62 +3,75 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Inkscape用 phn出力拡張 (Phun/Algodoo ユーザー用)</title>
-  <link rel="icon" type="image/x-icon" href="./images/favicon.png?2026.04.21">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inkscapeで描いたSVGをPhun・Algodoo用のphn形式で保存する拡張機能。ダウンロード、導入手順、図形の対応表を掲載しています。">
+  <title>Inkscape用 phn出力拡張</title>
+  <link rel="icon" type="image/png" href="./images/favicon.png?2026.04.21">
+  <link rel="alternate" hreflang="en" href="./index_en.html">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-  <div id="contents">
-    <h1>Inkscape用 phn出力拡張 (Phun/Algodoo ユーザー用)</h1>
-    <span>
-      <b>日本語(Japanese), <a href="./index_en.html">English</a></b>
-    </span>
+  <a class="skip-link" href="#contents">本文へ移動</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">phn_output</a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="./index.html" aria-current="page">紹介</a>
+        <a href="./specification.html">仕様</a>
+        <a href="./changes.html">更新履歴</a>
+      </nav>
+      <nav class="languages" aria-label="言語">
+        <span lang="ja">日本語</span>
+        <span aria-hidden="true">/</span>
+        <a lang="en" hreflang="en" href="./index_en.html">English</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2 id="download">ダウンロード</h2>
-    <p>
-      【α版として公開中】<br>
-      最新版ダウンロード: <a href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip">phn_output_v0.1.0 (zipファイル)</a>
-    </p>
+  <main class="container" id="contents">
+    <div class="intro" id="overview">
+      <div>
+        <h1><span>Inkscape用</span>phn出力拡張</h1>
+        <p class="lead">Inkscapeで描いたSVG図形をphn形式で保存し、PhunやAlgodooのシーンで使えます。</p>
+        <div class="download" id="download">
+          <a class="button" href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip" download>ZIPをダウンロード</a>
+          <span>v0.1.0 · α版</span>
+        </div>
+      </div>
+      <figure class="example">
+        <figcaption>変換例</figcaption>
+        <a href="./images/phn_output_example_v0.0.3.png">
+          <img src="./images/phn_output_example_v0.0.3.png" width="551" height="195"
+            alt="左はInkscapeで描いた図形、右はAlgodooで開いた同じシーン。画像を原寸で表示">
+        </a>
+      </figure>
+    </div>
 
-    <h2 id="overview">概要</h2>
-    <p>
-      Inkscapeで、SVGファイルを出力する代わりにphnファイルを出力します。<br>
-      SVGで作成した図形の形状をPhunやAlgodooで使用したい時にご利用ください。<br>
-      <br>
-      詳細は<a href="./specification.html"> 仕様 (暫定版) </a>を御覧ください。<br>
-    </p>
+    <div class="guide-links">
+      <a href="./specification.html#at_first">
+        <strong>インストールと使い方</strong>
+        <span>拡張機能を追加し、phn形式で保存する</span>
+      </a>
+      <a href="./specification.html#table">
+        <strong>図形の対応表</strong>
+        <span>SVGの図形とAlgodooでの変換結果を見比べる</span>
+      </a>
+      <a id="changelog" href="./changes.html">
+        <strong>更新履歴と旧版</strong>
+        <span>変更点を確認し、過去の版を入手する</span>
+      </a>
+    </div>
+  </main>
 
-    <table style="text-align: center; background-color:#B0D4E5">
-      <tr>
-        <th>
-          使用例
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <img src="./images/phn_output_example_v0.0.3.png" alt="[Image: phn出力の例]">
-        </td>
-      </tr>
-    </table>
-
-    <h2 id="changelog">更新履歴 / 古いバージョンの入手</h2>
-    <p>
-      <a href="./changes.html"> 更新履歴 </a>を御覧ください。
-    </p>
-
-    <hr>
-
-    <p>
-      Copyright (C) tatt61880 (たっと) ---- Twitterアカウント <a href="https://twitter.com/tatt61880">@tatt61880</a>
-    </p>
-
-    <p>
-      <a href="https://twitter.com/share" class="twitter-share-button">ツイート</a>
-      <script src="https://platform.twitter.com/widgets.js"></script>
-    </p>
-  </div>
+  <footer class="container site-footer">
+    <span>© tatt61880（たっと）</span>
+    <div>
+      <a href="https://github.com/tatt61880/phn_output">GitHub</a>
+      <a href="https://twitter.com/tatt61880">@tatt61880</a>
+      <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ftatt61880.github.io%2Fphn_output%2F">Xで共有</a>
+    </div>
+  </footer>
 </body>
 
 </html>

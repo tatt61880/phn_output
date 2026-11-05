@@ -3,57 +3,74 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Phn_output for Inkscape (for Phun/Algodoo users)</title>
-  <link rel="icon" type="image/x-icon" href="./images/favicon.png?2026.04.21">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download the Inkscape extension for exporting SVG shapes to Phun and Algodoo. Includes installation instructions and illustrated conversion examples.">
+  <title>phn output for Inkscape</title>
+  <link rel="icon" type="image/png" href="./images/favicon.png?2026.04.21">
+  <link rel="alternate" hreflang="ja" href="./index.html">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-  <div id="contents">
-    <h1>Phn_output for Inkscape (for Phun/Algodoo users)</h1>
-    <span>
-      <b><a href="./index.html">日本語(Japanese)</a>, English</b>
-    </span>
+  <a class="skip-link" href="#contents">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index_en.html">phn_output</a>
+      <nav class="site-nav" aria-label="Main menu">
+        <a href="./index_en.html" aria-current="page">Overview</a>
+        <a href="./specification_en.html">Specification</a>
+        <a href="./changes_en.html">History</a>
+      </nav>
+      <nav class="languages" aria-label="Language">
+        <a lang="ja" hreflang="ja" href="./index.html">日本語</a>
+        <span aria-hidden="true">/</span>
+        <span lang="en">English</span>
+      </nav>
+    </div>
+  </header>
 
-    <h2>Download</h2>
-    <p>
-      Latest version: <a href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip">phn_output_v0.1.0 (zip file)</a><br>
-      NOTE: This script is Alpha version.
-    </p>
+  <main class="container" id="contents">
+    <div class="intro" id="overview">
+      <div>
+        <h1><span>Inkscape extension</span>phn output</h1>
+        <p class="lead">Export SVG drawings as .phn files and use the shapes in Phun or Algodoo scenes.</p>
+        <div class="download" id="download">
+          <a class="button" href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip" download>Download ZIP</a>
+          <span>v0.1.0 · Alpha</span>
+        </div>
+      </div>
+      <figure class="example">
+        <figcaption>Conversion example</figcaption>
+        <a href="./images/phn_output_example_v0.0.3.png">
+          <img src="./images/phn_output_example_v0.0.3.png" width="551" height="195"
+            alt="Inkscape drawing on the left and the exported Algodoo scene on the right. View at full size.">
+        </a>
+      </figure>
+    </div>
 
-    <h2>Overview</h2>
-    <p>
-      With this Inkscape extension, you can output phn file instead of SVG file.<br>
-      You can import shape created by Inkscape into Algodoo/Phun<br>
-      <br>
-      For more detail, visit <a href="./specification_en.html"> Specification </a><br>
-    </p>
+    <div class="guide-links">
+      <a href="./specification_en.html#at_first">
+        <strong>Installation and use</strong>
+        <span>Install the extension and save your first .phn file.</span>
+      </a>
+      <a href="./specification_en.html#table">
+        <strong>Shape reference</strong>
+        <span>Compare SVG shapes with their Algodoo objects.</span>
+      </a>
+      <a id="changelog" href="./changes_en.html">
+        <strong>Version history</strong>
+        <span>Read the release notes and download older versions.</span>
+      </a>
+    </div>
+  </main>
 
-    <table style="text-align: center; background-color:#B0D4E5">
-      <tr>
-        <th>
-          Sample
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <img src="./images/phn_output_example_v0.0.3.png" alt="[Image: phn output example]">
-        </td>
-      </tr>
-    </table>
-
-    <h2>Changes / Old versions</h2>
-    <p>
-      Visit <a href="./changes.html"> Changes </a>
-    </p>
-
-    <hr>
-
-    <p>
-      This HTML is described by Tatt (tatt61880) ---- Twitter: <a href="http://twitter.com/#!/tatt61880">@tatt61880</a>
-    </p>
-  </div>
+  <footer class="container site-footer">
+    <span>© tatt61880 (Tatt)</span>
+    <div>
+      <a href="https://github.com/tatt61880/phn_output">GitHub</a>
+      <a href="https://twitter.com/tatt61880">@tatt61880</a>
+    </div>
+  </footer>
 </body>
 
 </html>

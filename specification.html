@@ -3,266 +3,252 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Inkscape用 phn出力拡張 仕様 (暫定版)</title>
-  <link rel="icon" type="image/x-icon" href="./images/favicon.png?2026.04.21">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="phn出力拡張の導入方法と使い方。SVGからAlgodooに変換した結果を図形ごとに比較できます。">
+  <title>仕様（暫定版） | Inkscape用 phn出力拡張</title>
+  <link rel="icon" type="image/png" href="./images/favicon.png?2026.04.21">
+  <link rel="alternate" hreflang="en" href="./specification_en.html">
   <link rel="stylesheet" href="./css/main.css">
-
-  <style>
-    td {
-      padding: 0.5em 0.5em 0em;
-    }
-
-    td.noborder {
-      border: 0px;
-      background-color: transparent;
-    }
-
-    th.right {
-      text-align: right;
-    }
-  </style>
 </head>
 
 <body>
-  <div id="contents">
-    <h1>Inkscape用 phn出力拡張 仕様 (暫定版)</h1>
-    <p>
-      <b>日本語(Japanese), <a href="./specification_en.html">English</a></b><br>
-      <a href="./index.html">紹介ページへ戻る</a>
-    </p>
+  <a class="skip-link" href="#contents">本文へ移動</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">phn_output</a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="./index.html">紹介</a>
+        <a href="./specification.html" aria-current="page">仕様</a>
+        <a href="./changes.html">更新履歴</a>
+      </nav>
+      <nav class="languages" aria-label="言語">
+        <span lang="ja">日本語</span>
+        <span aria-hidden="true">/</span>
+        <a lang="en" hreflang="en" href="./specification_en.html">English</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>目次</h2>
-    <ol>
-      <li><a href="#disclaimer">免責事項</a></li>
-      <li><a href="#at_first">使用前の準備</a></li>
-      <li><a href="#how_to_use">使用方法</a></li>
-      <li><a href="#table">SVG &lt;--&gt; Algodoo 対応表</a></li>
-    </ol>
+  <main class="container" id="contents">
+    <h1>仕様（暫定版）</h1>
+    <nav class="jump-links" aria-label="仕様の目次">
+      <a href="#at_first">インストール</a>
+      <a href="#how_to_use">使い方</a>
+      <a href="#table">図形の対応表</a>
+      <a href="#disclaimer">免責事項</a>
+    </nav>
 
-    <h2 id="disclaimer">免責事項</h2>
-    <p>
-      Inkscape 1.0.0 で動作確認しています。<br>
-      致命的な不具合が生じることはないと思いますが、作者はいかなる責任も負いません。<br>
-      ご利用は使用者の責任でお願いします。<br>
-      なお、zipファイルにはソースファイルも同梱しています。
-    </p>
+    <h2 id="at_first">インストール</h2>
+    <p><a href="./index.html#download">配布ZIP</a>を展開し、<code>phn_output.py</code> と <code>phn_output.inx</code> をInkscapeの <code>extensions</code> フォルダに入れてください。</p>
+    <dl class="paths">
+      <dt>Windows</dt>
+      <dd><code>C:\Program Files\Inkscape\share\inkscape\extensions</code></dd>
+      <dt>macOS</dt>
+      <dd><code>~/.config/inkscape/extensions</code> または <code>Contents/Resources/extensions</code></dd>
+    </dl>
 
-    <h2 id="at_first">使用前の準備</h2>
-    <p>
-      ダウンロードしたzipファイルに同梱されている
-      [phn_output.py] と [phn_output.inx] を <br>
-      Inkscapeのextensionsフォルダに入れてください。
-      extensionsフォルダの場所は下記の通りです。<br>
+    <h2 id="how_to_use">使い方</h2>
+    <p>Inkscapeの「名前を付けて保存」を開き、ファイルの種類で <strong>Algodoo scene (*.phn)</strong> を選んで保存します。</p>
+    <p>SVGファイルも残したい場合は、別途「Inkscape SVG (*.svg)」で保存してください。</p>
 
-      <b>Windowsの場合:</b><br>
-      C:\Program Files\Inkscape\share\inkscape\extensions<br>
-
-      <b>Macの場合:</b><br>
-      ~/.config/inkscape/extensions<br>
-      あるいは<br>
-      Contents/Resources/extensions<br>
-    </p>
-
-    <h2 id="how_to_use">使用方法</h2>
-    <p>
-      「名前を付けて保存」で「ファイルの種類」として「Algodoo scene (*.phn)」を選択し、適当なファイル名で保存してください。<br>
-      SVGファイルとしても保存したい場合は、お手数ですが、別途 「Inkscape SVG (*.svg)」で保存する必要があります。<br>
-    </p>
-
-    <h2 id="table">SVG &lt;--&gt; Algodoo 対応表</h2>
-
-    <table style="border-collapse:collapse; color:#000000;">
-      <tbody>
+    <h2 id="table">SVGとAlgodooの対応表</h2>
+    <details class="shape-index">
+      <summary>項目を選んで移動</summary>
+      <ul>
+        <li><a href="#scale">縮尺</a></li>
+        <li><a href="#circle">円</a></li>
+        <li><a href="#ellipse">楕円</a></li>
+        <li><a href="#box">長方形</a></li>
+        <li><a href="#rounded-box">角の丸い長方形</a></li>
+        <li><a href="#star">星形</a></li>
+        <li><a href="#star-tool">星形ツールで描いた複雑な図形</a></li>
+        <li><a href="#spiral">螺旋形（そのまま）</a></li>
+        <li><a href="#spiral-path">螺旋形（パス）</a></li>
+        <li><a href="#spiral-stroke">螺旋形（ストロークをパスに変換）</a></li>
+        <li><a href="#text">文字列</a></li>
+        <li><a href="#text-path">パスに変換した文字列</a></li>
+        <li><a href="#3d-box">3Dボックス</a></li>
+        <li><a href="#plane">平面</a></li>
+        <li><a href="#spring">バネ</a></li>
+        <li><a href="#hinge">ヒンジ</a></li>
+        <li><a href="#motor">モーター</a></li>
+        <li><a href="#tracer">トレーサー</a></li>
+        <li><a href="#laser-pen">レーザーポインタ</a></li>
+        <li><a href="#thruster">スラスター</a></li>
+      </ul>
+    </details>
+    <table class="reference" role="table" aria-labelledby="table">
+      <thead>
         <tr>
-          <td class="noborder" style="width:100px;"></td>
-          <th class="center">SVGの要素</th>
-          <th class="center">Algodooの<br>オブジェクト</th>
-          <th>説明</th>
+          <th scope="col">項目</th>
+          <th scope="col">SVG</th>
+          <th scope="col">Algodoo</th>
+          <th scope="col">変換結果と注意点</th>
         </tr>
-      </tbody>
+      </thead>
       <tbody>
-        <tr>
-          <th class="right">サイズ<br>について</th>
-          <td style="text-align:center">1 インチ(in)</td>
-          <td style="text-align:center">1 メートル</td>
+        <tr id="scale">
+          <th scope="row">縮尺</th>
+          <td>1 インチ(in)</td>
+          <td>1 メートル</td>
           <td>Inkscape上での1インチをAlgodooの1ｍに対応させています。<br>
             初期設定が面倒なので、example.svgをコピーして編集すると楽です。<br><br>
             <b>Inkscapeに慣れていない方へのアドバイス：<br>グリッド機能は[表示(V)]-[グリッド(G)]でオン/オフできます。</b><br>
-            (ショートカットキー: #)
-          </td>
+            (ショートカットキー: #)</td>
         </tr>
-        <tr>
-          <th class="right">円</th>
-          <td><img width="150" height="150" src="./images/specification/svg_circle.png" alt="SVG: Circle"></td>
-          <td><img width="150" height="150" src="./images/specification/algodoo_circle.png" alt="Algodoo: Circle"></td>
+        <tr id="circle">
+          <th scope="row">円</th>
+          <td><img src="./images/specification/svg_circle.png" width="150" height="150" loading="lazy" alt="円の変換前"></td>
+          <td><img src="./images/specification/algodoo_circle.png" width="150" height="150" loading="lazy" alt="円の変換後"></td>
           <td>Inkscapeで作成した円はサークルに変換されます。<br>
             変換後のサークルはおうぎ形が非表示になります。<br>
             ※Inkscape以外のSVGエディタで作成した円は下記の楕円として扱われる場合があります。</td>
         </tr>
-        <tr>
-          <th class="right">楕円</th>
-          <td><img width="150" height="125" src="./images/specification/svg_ellipse.png" alt="SVG: Ellipse"></td>
-          <td><img width="150" height="125" src="./images/specification/algodoo_ellipse.png" alt="Algodoo: Ellipse">
-          </td>
+        <tr id="ellipse">
+          <th scope="row">楕円</th>
+          <td><img src="./images/specification/svg_ellipse.png" width="150" height="125" loading="lazy" alt="楕円の変換前"></td>
+          <td><img src="./images/specification/algodoo_ellipse.png" width="150" height="128" loading="lazy" alt="楕円の変換後"></td>
           <td>Inkscapeで作成した楕円はポリゴンに変換されます。</td>
         </tr>
-        <tr>
-          <th class="right">長方形</th>
-          <td><img width="150" src="./images/specification/svg_box.png" alt="SVG: Box"></td>
-          <td><img width="150" src="./images/specification/algodoo_box.png" alt="Algodoo: Box"></td>
+        <tr id="box">
+          <th scope="row">長方形</th>
+          <td><img src="./images/specification/svg_box.png" width="150" height="125" loading="lazy" alt="長方形の変換前"></td>
+          <td><img src="./images/specification/algodoo_box.png" width="150" height="125" loading="lazy" alt="長方形の変換後"></td>
           <td>Inkscapeの矩形ツールで描かれた長方形はボックスに変換されます。</td>
         </tr>
-        <tr>
-          <th class="right">角の丸い<br>長方形</th>
-          <td><img width="150" src="./images/specification/svg_rounded_box.png" alt="SVG: Rounded Box"></td>
-          <td><img width="150" src="./images/specification/algodoo_rounded_box.png" alt="Algodoo: Rounded Box"></td>
+        <tr id="rounded-box">
+          <th scope="row">角の丸い長方形</th>
+          <td><img src="./images/specification/svg_rounded_box.png" width="150" height="123" loading="lazy" alt="角の丸い長方形の変換前"></td>
+          <td><img src="./images/specification/algodoo_rounded_box.png" width="150" height="128" loading="lazy" alt="角の丸い長方形の変換後"></td>
           <td>矩形ツールで描かれた、角の丸い長方形はポリゴンに変換されます。</td>
         </tr>
-        <tr>
-          <th class="right">星形</th>
-          <td><img width="150" src="./images/specification/svg_star.png" alt="SVG: Star"></td>
-          <td><img width="150" src="./images/specification/algodoo_star.png" alt="Algodoo: Star"></td>
+        <tr id="star">
+          <th scope="row">星形</th>
+          <td><img src="./images/specification/svg_star.png" width="150" height="150" loading="lazy" alt="星形の変換前"></td>
+          <td><img src="./images/specification/algodoo_star.png" width="150" height="150" loading="lazy" alt="星形の変換後"></td>
           <td>星形ツールで描かれた図形はポリゴンに変換されます。</td>
         </tr>
-        <tr>
-          <th class="right">星形ツールで<br>描いた図形</th>
-          <td><img width="150" src="./images/specification/svg_startool_complex.png" alt="SVG: Star Complex"></td>
-          <td><img width="150" src="./images/specification/algodoo_startool_complex.png" alt="Algodoo: Star Complex">
-          </td>
+        <tr id="star-tool">
+          <th scope="row">星形ツールで描いた複雑な図形</th>
+          <td><img src="./images/specification/svg_startool_complex.png" width="150" height="150" loading="lazy" alt="星形ツールで描いた複雑な図形の変換前"></td>
+          <td><img src="./images/specification/algodoo_startool_complex.png" width="150" height="150" loading="lazy" alt="星形ツールで描いた複雑な図形の変換後"></td>
           <td>星形ツールでは複雑な図形も描けますが、これもポリゴンに変換されます。</td>
         </tr>
-        <tr>
-          <th class="right">螺旋形(1)</th>
-          <td><img width="150" src="./images/specification/svg_spiral.png" alt="SVG: Spiral"></td>
-          <td><img width="150" src="./images/specification/algodoo_spiral.png" alt="Algodoo: Spiral Failure"></td>
+        <tr id="spiral">
+          <th scope="row">螺旋形（そのまま）</th>
+          <td><img src="./images/specification/svg_spiral.png" width="150" height="125" loading="lazy" alt="螺旋形（そのまま）の変換前"></td>
+          <td><img src="./images/specification/algodoo_spiral.png" width="150" height="125" loading="lazy" alt="螺旋形（そのまま）の変換後"></td>
           <td>らせんツールで描かれた図形は注意が必要です。<br>
             そのままでは意図した図形が出力されません。</td>
         </tr>
-        <tr>
-          <th class="right">螺旋形(2)</th>
-          <td><img width="150" src="./images/specification/svg_spiral_path.png"
-              alt="SVG: Inkscape spiral to Plane SVG path element"></td>
-          <td><img width="150" src="./images/specification/algodoo_spiral_path.png" alt="Algodoo: Spiral Failure 2">
-          </td>
+        <tr id="spiral-path">
+          <th scope="row">螺旋形（パス）</th>
+          <td><img src="./images/specification/svg_spiral_path.png" width="150" height="125" loading="lazy" alt="螺旋形（パス）の変換前"></td>
+          <td><img src="./images/specification/algodoo_spiral_path.png" width="150" height="125" loading="lazy" alt="螺旋形（パス）の変換後"></td>
           <td>曲線に沿ったパスを境界線に持つポリゴンが作成されてしまいます。<br>
             この時、パスの始点と終点は自動的に結ばれます(図の赤い線分)。</td>
         </tr>
-        <tr>
-          <th class="right">ストロークを<br>パスに変換<br>した螺旋形</th>
-          <td><img width="150" src="./images/specification/svg_spiral_storke2path.png" alt="SVG: Spiral stroke to path">
-          </td>
-          <td><img width="150" src="./images/specification/algodoo_spiral_storke2path.png" alt="Algodoo: Spiral"></td>
+        <tr id="spiral-stroke">
+          <th scope="row">螺旋形（ストロークをパスに変換）</th>
+          <td><img src="./images/specification/svg_spiral_storke2path.png" width="150" height="134" loading="lazy" alt="螺旋形（ストロークをパスに変換）の変換前"></td>
+          <td><img src="./images/specification/algodoo_spiral_storke2path.png" width="150" height="125" loading="lazy" alt="螺旋形（ストロークをパスに変換）の変換後"></td>
           <td><b>らせんツールで描いた図形を上手く変換する方法:</b><br>
             図形を選択して、[パス(P)] - [ストロークをパスに変換(S)] <br>
             (ショートカットキー: Ctrl+Alt+C)</td>
         </tr>
-        <tr>
-          <th class="right">文字列</th>
-          <td><img width="150" src="./images/specification/svg_text.png" alt="SVG: Text"></td>
-          <td><img width="150" src="./images/specification/algodoo_text.png" alt="Algodoo: Text"></td>
+        <tr id="text">
+          <th scope="row">文字列</th>
+          <td><img src="./images/specification/svg_text.png" width="150" height="77" loading="lazy" alt="文字列の変換前"></td>
+          <td><img src="./images/specification/algodoo_text.png" width="150" height="77" loading="lazy" alt="文字列の変換後"></td>
           <td>文字列には対応していません。</td>
         </tr>
-        <tr>
-          <th class="right">パスに変換<br>した文字列</th>
-          <td><img width="150" src="./images/specification/svg_text_path.png" alt="SVG: Text path"></td>
-          <td><img width="150" src="./images/specification/algodoo_text_path.png" alt="Algodoo: Text path"></td>
+        <tr id="text-path">
+          <th scope="row">パスに変換した文字列</th>
+          <td><img src="./images/specification/svg_text_path.png" width="150" height="59" loading="lazy" alt="パスに変換した文字列の変換前"></td>
+          <td><img src="./images/specification/algodoo_text_path.png" width="150" height="65" loading="lazy" alt="パスに変換した文字列の変換後"></td>
           <td>文字列をパスに変形した図形は出力可能です。<br>
             <b>パスに変換する方法:</b><br>
             図形を選択して、[パス(P)] - [オブジェクトをパスへ(O)]<br>
-            (ショートカットキー: Shift+Ctrl+C)
-          </td>
+            (ショートカットキー: Shift+Ctrl+C)</td>
         </tr>
-        <tr>
-          <th class="right">3D ボックス<br>ツール で<br>作成した図形</th>
-          <td><img width="150" src="./images/specification/svg_3dbox.png" alt="SVG: Text path"></td>
-          <td><img width="150" src="./images/specification/algodoo_3dbox.png" alt="Algodoo: Text path"></td>
+        <tr id="3d-box">
+          <th scope="row">3Dボックス</th>
+          <td><img src="./images/specification/svg_3dbox.png" width="150" height="158" loading="lazy" alt="3Dボックスの変換前"></td>
+          <td><img src="./images/specification/algodoo_3dbox.png" width="150" height="188" loading="lazy" alt="3Dボックスの変換後"></td>
           <td>3D ボックスツールで作成した図形もこの通り！</td>
         </tr>
-        <tr>
-          <th class="right">平面</th>
-          <td><img width="150" src="./images/specification/svg_plane.png" alt="SVG: Plane"></td>
-          <td><img width="150" src="./images/specification/algodoo_plane.png" alt="Algodoo: Plane"></td>
+        <tr id="plane">
+          <th scope="row">平面</th>
+          <td><img src="./images/specification/svg_plane.png" width="150" height="130" loading="lazy" alt="平面の変換前"></td>
+          <td><img src="./images/specification/algodoo_plane.png" width="150" height="130" loading="lazy" alt="平面の変換後"></td>
           <td>SVGのpolylineという要素を平面に変換します。<br>
             自力で作成するのは手間なので、example.svgの平面をご利用ください。</td>
         </tr>
-        <tr>
-          <th class="right">バネ</th>
-          <td><img width="150" src="./images/specification/svg_spring.png" alt="SVG: Spring"></td>
-          <td><img width="150" src="./images/specification/algodoo_spring.gif" alt="Algodoo: Spring"></td>
+        <tr id="spring">
+          <th scope="row">バネ</th>
+          <td><img src="./images/specification/svg_spring.png" width="150" height="144" loading="lazy" alt="バネの変換前"></td>
+          <td><img src="./images/specification/algodoo_spring.gif" width="148" height="148" loading="lazy" alt="バネの変換後"></td>
           <td>パスで作成した線分を変換すると、バネになります。<br>
             減衰定数は0.1になるため、目的に合わせて調整してください。<br>
             ※パスで作成した図形が頂点を3つ以上持つ場合、線分に見えていてもポリゴンに変換します。</td>
         </tr>
-        <tr>
-          <th class="right">ヒンジ</th>
-          <td><img width="150" src="./images/specification/svg_hinge.png" alt="SVG: Hinge"></td>
-          <td><img width="150" src="./images/specification/algodoo_hinge.png" alt="Algodoo: Hinge"></td>
+        <tr id="hinge">
+          <th scope="row">ヒンジ</th>
+          <td><img src="./images/specification/svg_hinge.png" width="150" height="150" loading="lazy" alt="ヒンジの変換前"></td>
+          <td><img src="./images/specification/algodoo_hinge.png" width="150" height="150" loading="lazy" alt="ヒンジの変換後"></td>
           <td>中間マーカー付きの円(marker-mid属性を持った円)は、サークルではなくヒンジに対応します。<br>
             この時、中間マーカーの種類は関係ありません。</td>
         </tr>
-        <tr>
-          <th class="right">モーター</th>
-          <td><img width="150" src="./images/specification/svg_motor.png" alt="SVG: Motor"></td>
-          <td><img width="150" src="./images/specification/algodoo_motor.png" alt="Algodoo: Motor"></td>
+        <tr id="motor">
+          <th scope="row">モーター</th>
+          <td><img src="./images/specification/svg_motor.png" width="150" height="150" loading="lazy" alt="モーターの変換前"></td>
+          <td><img src="./images/specification/algodoo_motor.png" width="150" height="150" loading="lazy" alt="モーターの変換後"></td>
           <td>始点マーカー付きの円(marker-start属性を持った円)は、サークルではなくモーターに対応します。<br>
             Inkscapeでは、始点マーカーとして"～start"という名前のマーカーを選ぶことで<br>
             モーターの向きとマーカーの向きが揃います。<br>
             よくわからない場合は、example.svgで使用されているものを利用してください。<br>
             ※モーターはヒンジの一種ですが、中間マーカーを設定する必要はありません。</td>
         </tr>
-        <tr>
-          <th class="right">トレーサー</th>
-          <td><img width="150" src="./images/specification/svg_tracer.png" alt="SVG: Plane"></td>
-          <td><img width="150" src="./images/specification/algodoo_tracer.png" alt="Algodoo: Plane"></td>
+        <tr id="tracer">
+          <th scope="row">トレーサー</th>
+          <td><img src="./images/specification/svg_tracer.png" width="150" height="150" loading="lazy" alt="トレーサーの変換前"></td>
+          <td><img src="./images/specification/algodoo_tracer.png" width="150" height="150" loading="lazy" alt="トレーサーの変換後"></td>
           <td>フィルター付きの円(filter属性を持った円)は、トレーサーに対応します。<br>
             フィルターの種類には関係ありません。<br>
             Inkscapeでは、「ぼかし」を設定することでfilter属性を持たせることができます。</td>
         </tr>
-        <tr>
-          <th class="right">レーザー<br>ポインタ</th>
-          <td><img width="150" src="./images/specification/svg_laserpen.png" alt="SVG: LaserPen"></td>
-          <td><img width="150" src="./images/specification/algodoo_laserpen.png" alt="Algodoo: LaserPen"></td>
+        <tr id="laser-pen">
+          <th scope="row">レーザーポインタ</th>
+          <td><img src="./images/specification/svg_laserpen.png" width="150" height="107" loading="lazy" alt="レーザーポインタの変換前"></td>
+          <td><img src="./images/specification/algodoo_laserpen.png" width="300" height="214" loading="lazy" alt="レーザーポインタの変換後"></td>
           <td>終点マーカー付きの線分(marker-end属性を持った線分)は、レーザーポインタに対応します。<br>
             終点マーカーの種類には関係ありません。<br>
             ※終点マーカーのない線分はバネに対応しています。</td>
         </tr>
-        <tr>
-          <th class="right">スラスター</th>
-          <td><img width="150" height="200" src="./images/specification/svg_thruster.png" alt="SVG: Thruster"></td>
-          <td><img width="150" height="200" src="./images/specification/algodoo_thruster.png" alt="Algodoo: Thruster">
-          </td>
+        <tr id="thruster">
+          <th scope="row">スラスター</th>
+          <td><img src="./images/specification/svg_thruster.png" width="150" height="200" loading="lazy" alt="スラスターの変換前"></td>
+          <td><img src="./images/specification/algodoo_thruster.png" width="150" height="200" loading="lazy" alt="スラスターの変換後"></td>
           <td>始点マーカー付きの線分(marker-start属性を持った線分)は、スラスターに対応します。<br>
             始点マーカーの種類には関係ありません。<br>
             ※始点マーカーのない線分はバネに対応しています。</td>
         </tr>
       </tbody>
-      <tbody>
-        <tr>
-          <td class="noborder"></td>
-          <th class="center">SVGの要素</th>
-          <th class="center">Algodooの<br>オブジェクト</th>
-          <th>説明</th>
-        </tr>
-      </tbody>
     </table>
 
-    <p>
-      以上です。お疲れさまでした。<br>
-    </p>
+    <h2 id="disclaimer">免責事項</h2>
+    <p>Inkscape 1.0.0 で動作確認しています。ZIPファイルにはソースファイルも同梱しています。</p>
+    <p>致命的な不具合が生じることはないと思いますが、作者はいかなる責任も負いません。ご利用は使用者の責任でお願いします。</p>
+    <p class="back-link"><a href="#contents">仕様の先頭へ</a></p>
+  </main>
 
-    <hr>
-
-    <p>
-      <a href="./index.html">紹介ページへ戻る</a>
-    </p>
-
-    <hr>
-
-    <p>
-      Copyright (C) tatt61880 (たっと) ---- Twitterアカウント <a href="https://twitter.com/tatt61880">@tatt61880</a>
-    </p>
-  </div>
+  <footer class="container site-footer">
+    <span>© tatt61880（たっと）</span>
+    <div>
+      <a href="https://github.com/tatt61880/phn_output">GitHub</a>
+      <a href="https://twitter.com/tatt61880">@tatt61880</a>
+    </div>
+  </footer>
 </body>
 
 </html>

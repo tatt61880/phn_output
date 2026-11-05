@@ -3,261 +3,226 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Phn_output for Inkscape Specification</title>
-  <link rel="icon" type="image/x-icon" href="./images/favicon.png?2026.04.21">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Install and use phn output, then compare SVG elements with the resulting Algodoo objects.">
+  <title>Specification (draft) | phn output for Inkscape</title>
+  <link rel="icon" type="image/png" href="./images/favicon.png?2026.04.21">
+  <link rel="alternate" hreflang="ja" href="./specification.html">
   <link rel="stylesheet" href="./css/main.css">
-
-  <style>
-    td {
-      padding: 0.5em 0.5em 0em;
-    }
-
-    td.noborder {
-      border: 0px;
-      background-color: transparent;
-    }
-
-    th.right {
-      text-align: right;
-    }
-  </style>
 </head>
 
 <body>
-  <div id="contents">
-    <h1>Phn_output for Inkscape Specification</h1>
-    <p>
-      <b><a href="./specification.html">日本語(Japanese)</a>, English</b><br>
-      <a href="./index_en.html">Back to Home</a>
-    </p>
+  <a class="skip-link" href="#contents">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index_en.html">phn_output</a>
+      <nav class="site-nav" aria-label="Main menu">
+        <a href="./index_en.html">Overview</a>
+        <a href="./specification_en.html" aria-current="page">Specification</a>
+        <a href="./changes_en.html">History</a>
+      </nav>
+      <nav class="languages" aria-label="Language">
+        <a lang="ja" hreflang="ja" href="./specification.html">日本語</a>
+        <span aria-hidden="true">/</span>
+        <span lang="en">English</span>
+      </nav>
+    </div>
+  </header>
 
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#disclaimer">Disclaimer</a></li>
-      <li><a href="#at_first">Setting</a></li>
-      <li><a href="#how_to_use">How to use</a></li>
-      <li><a href="#table">SVG &lt;--&gt; Algodoo table</a></li>
-    </ol>
+  <main class="container" id="contents">
+    <h1>Specification (draft)</h1>
+    <nav class="jump-links" aria-label="On this page">
+      <a href="#at_first">Installation</a>
+      <a href="#how_to_use">Exporting</a>
+      <a href="#table">Shape reference</a>
+      <a href="#disclaimer">Disclaimer</a>
+    </nav>
 
-    <h2 id="disclaimer">Disclaimer</h2>
-    <p>
-      This script is checked with Inkscape 1.0.0.<br>
-      Please use this script with no warranty.<br>
-      NOTE: There are source files in zip file.
-    </p>
+    <h2 id="at_first">Installation</h2>
+    <p>Extract the <a href="./index_en.html#download">downloaded ZIP</a> and copy <code>phn_output.py</code> and <code>phn_output.inx</code> to the Inkscape <code>extensions</code> folder.</p>
+    <dl class="paths">
+      <dt>Windows</dt>
+      <dd><code>C:\Program Files\Inkscape\share\inkscape\extensions</code></dd>
+      <dt>macOS</dt>
+      <dd><code>~/.config/inkscape/extensions</code> or <code>Contents/Resources/extensions</code></dd>
+    </dl>
 
-    <h2 id="at_first">Setting</h2>
-    <p>
-      Move [phn_output.py] and [phn_output.inx] -- which are included in zip file -- <br>
-      into [extensions] folder. <br>
-      You'll find [extensions] folder at following path<br>
+    <h2 id="how_to_use">Exporting</h2>
+    <p>In Inkscape, choose <strong>Save As</strong>, select <strong>Algodoo scene (*.phn)</strong> as the file type, and save the file.</p>
+    <p>To keep an editable SVG, also save a copy as Inkscape SVG (*.svg).</p>
 
-      <b>Windows:</b><br>
-      C:\Program Files\Inkscape\share\extensions<br>
-
-      <b>Mac OS:</b><br>
-      ~/.config/inkscape/extensions<br>
-      otherwise,<br>
-      Contents/Resources/extensions<br>
-    </p>
-
-    <h2 id="how_to_use">How to use</h2>
-    <p>
-      Click [Save as... ] and select [Algodoo scene (*.phn)] for file type.<br>
-      NOTE: You need to save as svg file if you also need a svg file.<br>
-    </p>
-
-    <h2 id="table">SVG &lt;--&gt; Algodoo table</h2>
-
-    <table style="border-collapse:collapse; color:#000000;">
+    <h2 id="table">SVG to Algodoo reference</h2>
+    <details class="shape-index">
+      <summary>Jump to an item</summary>
+      <ul>
+        <li><a href="#scale">Scale</a></li>
+        <li><a href="#circle">Circle</a></li>
+        <li><a href="#ellipse">Ellipse</a></li>
+        <li><a href="#box">Rectangle</a></li>
+        <li><a href="#rounded-box">Rounded rectangle</a></li>
+        <li><a href="#star">Star</a></li>
+        <li><a href="#star-tool">Complex star</a></li>
+        <li><a href="#spiral">Spiral</a></li>
+        <li><a href="#spiral-path">Spiral path</a></li>
+        <li><a href="#spiral-stroke">Spiral (stroke to path)</a></li>
+        <li><a href="#text">Text</a></li>
+        <li><a href="#text-path">Text converted to a path</a></li>
+        <li><a href="#3d-box">3D box</a></li>
+        <li><a href="#plane">Plane</a></li>
+        <li><a href="#spring">Spring</a></li>
+        <li><a href="#hinge">Hinge</a></li>
+        <li><a href="#motor">Motor</a></li>
+        <li><a href="#tracer">Tracer</a></li>
+        <li><a href="#laser-pen">Laser pen</a></li>
+        <li><a href="#thruster">Thruster</a></li>
+      </ul>
+    </details>
+    <table class="reference" role="table" aria-labelledby="table">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">SVG</th>
+          <th scope="col">Algodoo</th>
+          <th scope="col">Conversion notes</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr>
-          <td class="noborder" style="width:100px;"></td>
-          <th class="center">SVG<br>elements</th>
-          <th class="center">Algodoo<br>objects</th>
-          <th>Description</th>
+        <tr id="scale">
+          <th scope="row">Scale</th>
+          <td>1 inch (in)</td>
+          <td>1 meter (m)</td>
+          <td>One inch in Inkscape corresponds to one meter in Algodoo. For a drawing with the scale already set up, start with a copy of <code>example.svg</code>. Toggle the grid with <b>View → Grid</b> (<kbd>#</kbd>).</td>
         </tr>
-      </tbody>
-      <tbody>
-        <tr>
-          <th class="right">Size</th>
-          <td style="text-align:center">1 inch (in)</td>
-          <td style="text-align:center">1 meter (m)</td>
-          <td>Inkscape's 1 inch equivalents Algodoo's 1 meter.<br>
-            I've created example.svg, please copy and use it.<br>
-            <br>
-            <b>Advise for Inkscape beginner:</b><br>
-            Grid feature can be toggled by [View]-[Grid] (shortcut-key: #)
-          </td>
+        <tr id="circle">
+          <th scope="row">Circle</th>
+          <td><img src="./images/specification/svg_circle.png" width="150" height="150" loading="lazy" alt="Circle in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_circle.png" width="150" height="150" loading="lazy" alt="Circle in Algodoo"></td>
+          <td>A circle drawn in Inkscape becomes a circle in Algodoo with the “Draw circle cake” option off. A circular path drawn in another SVG editor may be treated as a polygon.</td>
         </tr>
-        <tr>
-          <th class="right">Circles</th>
-          <td><img width="150" src="./images/specification/svg_circle.png" alt="SVG: Circle"></td>
-          <td><img width="150" src="./images/specification/algodoo_circle.png" alt="Algodoo: Circle"></td>
-          <td>Perfect circles will be converted into Circle.<br>
-            "Draw circle cake" option is off for the circles. <br>
-            NOTE: SVG editor (except Inkscape) can be generated circle shaped paths which cannot be detect as circles.
-            The shapes will be handled as Polygons.</td>
+        <tr id="ellipse">
+          <th scope="row">Ellipse</th>
+          <td><img src="./images/specification/svg_ellipse.png" width="150" height="125" loading="lazy" alt="Ellipse in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_ellipse.png" width="150" height="128" loading="lazy" alt="Ellipse in Algodoo"></td>
+          <td>An ellipse becomes a polygon.</td>
         </tr>
-        <tr>
-          <th class="right">Ellipses</th>
-          <td><img width="150" src="./images/specification/svg_ellipse.png" alt="SVG: Ellipse"></td>
-          <td><img width="150" src="./images/specification/algodoo_ellipse.png" alt="Algodoo: Ellipse"></td>
-          <td>Ellipses will be converted into Polygons.</td>
+        <tr id="box">
+          <th scope="row">Rectangle</th>
+          <td><img src="./images/specification/svg_box.png" width="150" height="125" loading="lazy" alt="Rectangle in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_box.png" width="150" height="125" loading="lazy" alt="Rectangle in Algodoo"></td>
+          <td>A rectangle drawn with the rectangle tool becomes a box.</td>
         </tr>
-        <tr>
-          <th class="right">Rectangles</th>
-          <td><img width="150" src="./images/specification/svg_box.png" alt="SVG: Box"></td>
-          <td><img width="150" src="./images/specification/algodoo_box.png" alt="Algodoo: Box"></td>
-          <td>Rectangles which is created by Inkscape's rectangle tool will be converted into Box.</td>
+        <tr id="rounded-box">
+          <th scope="row">Rounded rectangle</th>
+          <td><img src="./images/specification/svg_rounded_box.png" width="150" height="123" loading="lazy" alt="Rounded rectangle in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_rounded_box.png" width="150" height="128" loading="lazy" alt="Rounded rectangle in Algodoo"></td>
+          <td>A rectangle with rounded corners becomes a polygon.</td>
         </tr>
-        <tr>
-          <th class="right">Rounded<br>rectangles</th>
-          <td><img width="150" src="./images/specification/svg_rounded_box.png" alt="SVG: Rounded Box"></td>
-          <td><img width="150" src="./images/specification/algodoo_rounded_box.png" alt="Algodoo: Rounded Box"></td>
-          <td>Rounded rectangles will be converted into Polygons.</td>
+        <tr id="star">
+          <th scope="row">Star</th>
+          <td><img src="./images/specification/svg_star.png" width="150" height="150" loading="lazy" alt="Star in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_star.png" width="150" height="150" loading="lazy" alt="Star in Algodoo"></td>
+          <td>A star becomes a polygon.</td>
         </tr>
-        <tr>
-          <th class="right">Stars</th>
-          <td><img width="150" src="./images/specification/svg_star.png" alt="SVG: Star"></td>
-          <td><img width="150" src="./images/specification/algodoo_star.png" alt="Algodoo: Star"></td>
-          <td>Stars will be converted into Polygons</td>
+        <tr id="star-tool">
+          <th scope="row">Complex star</th>
+          <td><img src="./images/specification/svg_startool_complex.png" width="150" height="150" loading="lazy" alt="Complex star in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_startool_complex.png" width="150" height="150" loading="lazy" alt="Complex star in Algodoo"></td>
+          <td>Complex shapes drawn with the star tool also become polygons.</td>
         </tr>
-        <tr>
-          <th class="right">Star tool</th>
-          <td><img width="150" src="./images/specification/svg_startool_complex.png" alt="SVG: Star Complex"></td>
-          <td><img width="150" src="./images/specification/algodoo_startool_complex.png" alt="Algodoo: Star Complex">
-          </td>
-          <td>Star tool can generate complex shapes easily. The shapes will be converted into Polygon.</td>
+        <tr id="spiral">
+          <th scope="row">Spiral</th>
+          <td><img src="./images/specification/svg_spiral.png" width="150" height="125" loading="lazy" alt="Spiral in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_spiral.png" width="150" height="125" loading="lazy" alt="Spiral in Algodoo"></td>
+          <td>Exporting a spiral directly may give an unexpected shape, as shown.</td>
         </tr>
-        <tr>
-          <th class="right">Spirals(1)</th>
-          <td><img width="150" src="./images/specification/svg_spiral.png" alt="SVG: Spiral"></td>
-          <td><img width="150" src="./images/specification/algodoo_spiral.png" alt="Algodoo: Spiral Failure"></td>
-          <td>The shape converted from spiral may be not what you intended.</td>
+        <tr id="spiral-path">
+          <th scope="row">Spiral path</th>
+          <td><img src="./images/specification/svg_spiral_path.png" width="150" height="125" loading="lazy" alt="Spiral path in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_spiral_path.png" width="150" height="125" loading="lazy" alt="Spiral path in Algodoo"></td>
+          <td>A spiral path becomes a polygon. Its ends are joined automatically, as shown by the red line.</td>
         </tr>
-        <tr>
-          <th class="right">Spirals(2)</th>
-          <td><img width="150" src="./images/specification/svg_spiral_path.png"
-              alt="SVG: Inkscape spiral to Plane SVG path element"></td>
-          <td><img width="150" src="./images/specification/algodoo_spiral_path.png" alt="Algodoo: Spiral Failure 2">
-          </td>
-          <td>Polygon which has spiral shaped surface will be created.<br>
-            In this case, the end and start points will be connected automatically (red line in the picture).</td>
+        <tr id="spiral-stroke">
+          <th scope="row">Spiral (stroke to path)</th>
+          <td><img src="./images/specification/svg_spiral_storke2path.png" width="150" height="134" loading="lazy" alt="Spiral (stroke to path) in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_spiral_storke2path.png" width="150" height="125" loading="lazy" alt="Spiral (stroke to path) in Algodoo"></td>
+          <td>To preserve the outline of a spiral, select it and choose <b>Path → Stroke to Path</b> (<kbd>Ctrl+Alt+C</kbd>).</td>
         </tr>
-        <tr>
-          <th class="right">Spirals<br>(Stroke <br>to path)</th>
-          <td><img width="150" src="./images/specification/svg_spiral_storke2path.png" alt="SVG: Spiral stroke to path">
-          </td>
-          <td><img width="150" src="./images/specification/algodoo_spiral_storke2path.png" alt="Algodoo: Spiral"></td>
-          <td><b>How to convert spiral correctly:</b><br>
-            Select the shape and click [Path] - [Stroke to path] <br>
-            (shortcut-key: Ctrl+Alt+C)</td>
+        <tr id="text">
+          <th scope="row">Text</th>
+          <td><img src="./images/specification/svg_text.png" width="150" height="77" loading="lazy" alt="Text in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_text.png" width="150" height="77" loading="lazy" alt="Text in Algodoo"></td>
+          <td>Text objects are unsupported.</td>
         </tr>
-        <tr>
-          <th class="right">Text</th>
-          <td><img width="150" src="./images/specification/svg_text.png" alt="SVG: Text"></td>
-          <td><img width="150" src="./images/specification/algodoo_text.png" alt="Algodoo: Text"></td>
-          <td>Text cannot be handled, yet.</td>
+        <tr id="text-path">
+          <th scope="row">Text converted to a path</th>
+          <td><img src="./images/specification/svg_text_path.png" width="150" height="59" loading="lazy" alt="Text converted to a path in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_text_path.png" width="150" height="65" loading="lazy" alt="Text converted to a path in Algodoo"></td>
+          <td>To export text as polygons, select the text and choose <b>Path → Object to Path</b> (<kbd>Shift+Ctrl+C</kbd>).</td>
         </tr>
-        <tr>
-          <th class="right">Text shaped<br>path</th>
-          <td><img width="150" src="./images/specification/svg_text_path.png" alt="SVG: Text path"></td>
-          <td><img width="150" src="./images/specification/algodoo_text_path.png" alt="Algodoo: Text path"></td>
-          <td>Text shaped path can be converted into Polygons<br>
-            <b>How to convert text to path:</b><br>
-            Select text and click [Path] - [Object to path]<br>
-            (shortcut-key: Shift+Ctrl+C)
-          </td>
+        <tr id="3d-box">
+          <th scope="row">3D box</th>
+          <td><img src="./images/specification/svg_3dbox.png" width="150" height="158" loading="lazy" alt="3D box in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_3dbox.png" width="150" height="188" loading="lazy" alt="3D box in Algodoo"></td>
+          <td>The images show a drawing made with the 3D box tool and its exported shape.</td>
         </tr>
-        <tr>
-          <th class="right">3D boxs</th>
-          <td><img width="150" src="./images/specification/svg_3dbox.png" alt="SVG: Text path"></td>
-          <td><img width="150" src="./images/specification/algodoo_3dbox.png" alt="Algodoo: Text path"></td>
-          <td>Here you are!</td>
+        <tr id="plane">
+          <th scope="row">Plane</th>
+          <td><img src="./images/specification/svg_plane.png" width="150" height="130" loading="lazy" alt="Plane in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_plane.png" width="150" height="130" loading="lazy" alt="Plane in Algodoo"></td>
+          <td>An SVG <code>polyline</code> becomes a plane. You can copy the plane from <code>example.svg</code>.</td>
         </tr>
-        <tr>
-          <th class="right">Planes</th>
-          <td><img width="150" src="./images/specification/svg_plane.png" alt="SVG: Plane"></td>
-          <td><img width="150" src="./images/specification/algodoo_plane.png" alt="Algodoo: Plane"></td>
-          <td>With this specification, SVG's polyline elements is converted into Planes.<br>
-            Please copy and use one in example.svg</td>
+        <tr id="spring">
+          <th scope="row">Spring</th>
+          <td><img src="./images/specification/svg_spring.png" width="150" height="144" loading="lazy" alt="Spring in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_spring.gif" width="148" height="148" loading="lazy" alt="Spring in Algodoo"></td>
+          <td>A two-point path becomes a spring with a damping factor of 0.1. Adjust the damping as needed. A path with three or more vertices becomes a polygon even when it looks like a line segment.</td>
         </tr>
-        <tr>
-          <th class="right">Springs</th>
-          <td><img width="150" src="./images/specification/svg_spring.png" alt="SVG: Spring"></td>
-          <td><img width="150" src="./images/specification/algodoo_spring.gif" alt="Algodoo: Spring"></td>
-          <td>Segments will be converted into Springs.<br>
-            Default damping factor is 0.1 for the springs. Adjust it by yourself.<br>
-            NOTE: If the path has more than three vertex, will be converted into polygon even if the path looks like
-            segment.</td>
+        <tr id="hinge">
+          <th scope="row">Hinge</th>
+          <td><img src="./images/specification/svg_hinge.png" width="150" height="150" loading="lazy" alt="Hinge in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_hinge.png" width="150" height="150" loading="lazy" alt="Hinge in Algodoo"></td>
+          <td>A circle with a middle marker (<code>marker-mid</code>) becomes a hinge, regardless of the marker shape.</td>
         </tr>
-        <tr>
-          <th class="right">Hinges</th>
-          <td><img width="150" src="./images/specification/svg_hinge.png" alt="SVG: Hinge"></td>
-          <td><img width="150" src="./images/specification/algodoo_hinge.png" alt="Algodoo: Hinge"></td>
-          <td>Circles with "Mid Markers" (marker-mid attribute), will be converted into Hinges.<br>
-            The mid marker type won't affect to the result.</td>
+        <tr id="motor">
+          <th scope="row">Motor</th>
+          <td><img src="./images/specification/svg_motor.png" width="150" height="150" loading="lazy" alt="Motor in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_motor.png" width="150" height="150" loading="lazy" alt="Motor in Algodoo"></td>
+          <td>A circle with a start marker (<code>marker-start</code>) becomes a motor. The marker shape does not affect the conversion. Use a marker named “~start” to match the marker and motor directions in Inkscape, or copy the example from <code>example.svg</code>. A motor is a kind of hinge and only needs the start marker.</td>
         </tr>
-        <tr>
-          <th class="right">Motors</th>
-          <td><img width="150" src="./images/specification/svg_motor.png" alt="SVG: Motor"></td>
-          <td><img width="150" src="./images/specification/algodoo_motor.png" alt="Algodoo: Motor"></td>
-          <td>Circles with "Start Markers" (marker-start attribute), will be converted into Motors.<br>
-            The start marker type won't affect to the result.<br>
-            NOTE: Motor is a kind of hinge, but you don't have to set Mid marker for motor (Start markers is enough for
-            motor).</td>
+        <tr id="tracer">
+          <th scope="row">Tracer</th>
+          <td><img src="./images/specification/svg_tracer.png" width="150" height="150" loading="lazy" alt="Tracer in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_tracer.png" width="150" height="150" loading="lazy" alt="Tracer in Algodoo"></td>
+          <td>A circle with a <code>filter</code> attribute becomes a tracer. Any filter works, including blur.</td>
         </tr>
-        <tr>
-          <th class="right">Tracers</th>
-          <td><img width="150" src="./images/specification/svg_tracer.png" alt="SVG: Plane"></td>
-          <td><img width="150" src="./images/specification/algodoo_tracer.png" alt="Algodoo: Plane"></td>
-          <td>Circles with filter attribute, will be converted into Tracers.<br>
-            The filter type won't affect to the result.<br>
-            You can set filter as Blur</td>
+        <tr id="laser-pen">
+          <th scope="row">Laser pen</th>
+          <td><img src="./images/specification/svg_laserpen.png" width="150" height="107" loading="lazy" alt="Laser pen in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_laserpen.png" width="300" height="214" loading="lazy" alt="Laser pen in Algodoo"></td>
+          <td>A segment with an end marker (<code>marker-end</code>) becomes a laser pen. The marker shape does not matter.</td>
         </tr>
-        <tr>
-          <th class="right">LaserPens</th>
-          <td><img width="150" src="./images/specification/svg_laserpen.png" alt="SVG: LaserPen"></td>
-          <td><img width="150" src="./images/specification/algodoo_laserpen.png" alt="Algodoo: LaserPen"></td>
-          <td>Segments with "End Makers" (marker-end attribute), will be converted into Laserpens.<br>
-            The end marker type won't affect to the result.</td>
-        </tr>
-        <tr>
-          <th class="right">Thruster</th>
-          <td><img width="150" src="./images/specification/svg_thruster.png" alt="SVG: Thruster"></td>
-          <td><img width="150" src="./images/specification/algodoo_thruster.png" alt="Algodoo: Thruster"></td>
-          <td>Segments with "Start Makers" (marker-start attribute), will be converted into Thrusters.<br>
-            The start marker type won't affect to the result.</td>
-        </tr>
-      </tbody>
-      <tbody>
-        <tr>
-          <td class="noborder"></td>
-          <th class="center">SVG<br>elements</th>
-          <th class="center">Algodoo<br>objects</th>
-          <th>Description</th>
+        <tr id="thruster">
+          <th scope="row">Thruster</th>
+          <td><img src="./images/specification/svg_thruster.png" width="150" height="200" loading="lazy" alt="Thruster in Inkscape"></td>
+          <td><img src="./images/specification/algodoo_thruster.png" width="150" height="200" loading="lazy" alt="Thruster in Algodoo"></td>
+          <td>A segment with a start marker (<code>marker-start</code>) becomes a thruster. The marker shape does not matter.</td>
         </tr>
       </tbody>
     </table>
 
-    <p>
-      That's all! Thanks for reading!<br>
-    </p>
+    <h2 id="disclaimer">Disclaimer</h2>
+    <p>This extension was tested with Inkscape 1.0.0. The ZIP archive includes the source files.</p>
+    <p>The software is provided without warranty. Use it at your own risk.</p>
+    <p class="back-link"><a href="#contents">Back to specification</a></p>
+  </main>
 
-    <hr>
-
-    <p>
-      <a href="./index_en.html">Back to Home</a>
-    </p>
-
-    <hr>
-
-    <p>
-      This HTML is described by Tatt (tatt61880) ---- Twitter: <a href="https://twitter.com/tatt61880">@tatt61880</a>
-    </p>
-  </div>
+  <footer class="container site-footer">
+    <span>© tatt61880 (Tatt)</span>
+    <div>
+      <a href="https://github.com/tatt61880/phn_output">GitHub</a>
+      <a href="https://twitter.com/tatt61880">@tatt61880</a>
+    </div>
+  </footer>
 </body>
 
 </html>

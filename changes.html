@@ -3,166 +3,232 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Inkscape用 phn出力拡張 更新履歴</title>
-  <link rel="icon" type="image/x-icon" href="./images/favicon.png?2026.04.21">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inkscape用phn出力拡張の更新履歴と、各バージョンの配布ZIP。">
+  <title>更新履歴 | Inkscape用 phn出力拡張</title>
+  <link rel="icon" type="image/png" href="./images/favicon.png?2026.04.21">
+  <link rel="alternate" hreflang="en" href="./changes_en.html">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-  <div id="contents">
-    <h1>Inkscape用 phn出力拡張 更新履歴</h1>
-    <p>
-      <b>日本語(Japanese), <del>English</del> (Under
-        construction)</b><!--<a href="./changes_en.html">English</a></b>--><br>
-      <a href="./index.html">紹介ページへ戻る</a>
-    </p>
+  <a class="skip-link" href="#contents">本文へ移動</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">phn_output</a>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="./index.html">紹介</a>
+        <a href="./specification.html">仕様</a>
+        <a href="./changes.html" aria-current="page">更新履歴</a>
+      </nav>
+      <nav class="languages" aria-label="言語">
+        <span lang="ja">日本語</span>
+        <span aria-hidden="true">/</span>
+        <a lang="en" hreflang="en" href="./changes_en.html">English</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>目次</h2>
-    <ul>
-      <li><a href="#v0_1_0">v0.1.0 2020-05-12</a></li>
-      <li><a href="#v0_0_6">v0.0.6 2012-05-04</a></li>
-      <li><a href="#v0_0_5">v0.0.5 2012-04-19</a></li>
-      <li><a href="#v0_0_4">v0.0.4 2011-02-28</a></li>
-      <li><a href="#v0_0_3">v0.0.3 2011-02-19</a></li>
-      <li><a href="#v0_0_2b">v0.0.2b 2011-02-13</a></li>
-      <li><a href="#v0_0_2a">v0.0.2a 2011-02-13</a></li>
-      <li><a href="#v0_0_2">v0.0.2 2011-02-13</a></li>
-      <li><a href="#v0_01">v0.01 2011-02-09</a></li>
-    </ul>
+  <main class="container" id="contents">
+    <h1>更新履歴</h1>
 
-    <hr>
-    <pre>
-=== <a id="v0_1_0" href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip">phn_output_v0.1.0 (zipファイル)</a>, 2020-05-12 ===
-改善: Inkscape v1.0.0に対応
-インストール手順は下記のページを読んでください。
-<a href="./specification.html#at_first">./specification.html#at_first</a>
+    <nav class="jump-links" aria-label="バージョン一覧">
+      <a href="#v0_1_0">v0.1.0</a>
+      <a href="#v0_0_6">v0.0.6</a>
+      <a href="#v0_0_5">v0.0.5</a>
+      <a href="#v0_0_4">v0.0.4</a>
+      <a href="#v0_0_3">v0.0.3</a>
+      <a href="#v0_0_2b">v0.0.2b</a>
+      <a href="#v0_0_2a">v0.0.2a</a>
+      <a href="#v0_0_2">v0.0.2</a>
+      <a href="#v0_01">v0.01</a>
+    </nav>
 
-=== <a id="v0_0_6" href="./zip/phn_output_v0.0.6_2012_05_04_10_59.zip">phn_output_v0.0.6 (zipファイル)</a>, 2012-05-04 ===
-新規: スラスター ← 始点マーカー付きのline要素 (pathではなくline限定)
-改善: pathのベジエ曲線などをポリゴンに変換する際、
-      ノードが無駄に多くなる場合は削除するようにしました。
-修正: pathのパーサに不具合があったのを修正しました
-      (ポリゴンが正しく変換されないことがありました.)
+    <section class="release" id="v0_1_0">
+      <div class="release-heading">
+        <h2>v0.1.0</h2>
+        <time datetime="2020-05-12">2020-05-12</time>
+        <a href="./zip/phn_output_v0.1.0_2020_05_12_03_43.zip" download aria-label="v0.1.0のZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>改善: Inkscape v1.0.0に対応<br>
+          <a href="./specification.html#at_first">インストール手順</a>をご覧ください。</li>
+      </ul>
+    </section>
 
-=== <a id="v0_0_5" href="./zip/phn_output_v0.0.5_2012_04_19_08_53.zip">phn_output_v0.0.5 (zipファイル)</a>, 2012-04-19 ===
-変更: xml.dom.minidom から xml.etree.ElementTreeに戻しました。
-修正: python2.3でも動作するように、sortedを使わないようにしました
-      (しかし、xml.etree.ElementTreeはpython2.3では標準ではない)。
-修正: 2つの図形に接続されるアタッチメント（バネ、ヒンジ）が
-      正常に接続されない不具合の修正。
-     （下記のブログで報告された不具合に関する修正です。ありがとうございます）
-      <a href="http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html">http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html</a>
+    <section class="release" id="v0_0_6">
+      <div class="release-heading">
+        <h2>v0.0.6</h2>
+        <time datetime="2012-05-04">2012-05-04</time>
+        <a href="./zip/phn_output_v0.0.6_2012_05_04_10_59.zip" download aria-label="v0.0.6のZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>新規: スラスター ← 始点マーカー付きのline要素 (pathではなくline限定)</li>
+        <li>改善: pathのベジエ曲線などをポリゴンに変換する際、ノードが無駄に多くなる場合は削除するようにしました。</li>
+        <li>修正: pathのパーサに不具合があったのを修正しました(ポリゴンが正しく変換されないことがありました.)</li>
+      </ul>
+    </section>
 
-=== <a id="v0_0_4" href="./zip/phn_output_v0.0.4_2011_02_28_20_29.zip">phn_output_v0.0.4 (zipファイル)</a>, 2011-02-28 ===
-新規: 交差しない複合パスに対応しました.
-変更: xml.etree.ElementTree の代わりに
-      xml.dom.minidomを使用するようにしました。
-      動作確認済みのPythonに下記を追加:
-      * Python 2.4.4
-        <span style="color:gray; font-style:italic">(#71, Oct 18 2006, 08:34:43) [MSC v.1310 32 bit (Intel)] on win32 </span>
-修正: アタッチメント(バネやヒンジなど)の接続判定や
-      穴あきの図形の判定が誤る可能性のあったバグを修正しました.
-改善: 全般的にリファクタリングを行いました (継続的に開発を行なうため).
-変更: example.svgを少し手直ししました. 気になる場合は下記を御覧ください.
-      ・平面の位置を変更
-      ・緑色の平面の不透明度を最大に
-      ・グリッドを表示
-      ・「境界枠のエッジの中間点から中間点にスナップ(下図参照)」をオンに
-         (こうすることで、グリッドを非表示でもある程度スナップします)</pre>
-    <p style="margin-left:7em">
-      <img src="./images/others/snap_midpoint.png" alt="ScreenShot: Snap midpoint">
-    </p>
-    <pre>
-      ・ヒンジのマーカーの位置を変更 (中心でスナップしやすいように)
+    <section class="release" id="v0_0_5">
+      <div class="release-heading">
+        <h2>v0.0.5</h2>
+        <time datetime="2012-04-19">2012-04-19</time>
+        <a href="./zip/phn_output_v0.0.5_2012_04_19_08_53.zip" download aria-label="v0.0.5のZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>変更: xml.dom.minidom から xml.etree.ElementTreeに戻しました。</li>
+        <li>修正: python2.3でも動作するように、sortedを使わないようにしました(しかし、xml.etree.ElementTreeはpython2.3では標準ではない)。</li>
+        <li>修正: 2つの図形に接続されるアタッチメント（バネ、ヒンジ）が正常に接続されない不具合の修正。<br>
+          （下記のブログで報告された不具合に関する修正です。ありがとうございます）<br>
+          <a href="http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html">http://nishina2525.cocolog-nifty.com/blog/2012/04/phn-3a3b.html</a></li>
+      </ul>
+    </section>
 
-=== <a id="v0_0_3" href="./zip/phn_output_v0.0.3_2011_02_19_19_42.zip">phn_output_v0.0.3 (zipファイル)</a>, 2011-02-19 ===
-新規: モーター ← marker-start要素を持つ真円
-改善: 自己交差したパスで記述されたpathに対応しました.
-      (複合パスで記述された図形には未対応です.)
-改善: polygon要素をポリゴンに変換するようにしました.
-      (前のバージョンまでは, path要素のみポリゴンに変換していました.)
-改善: path要素で作成した線分(2点のみのpath)をバネに変換するようにしました.
-      (前のバージョンまでは, line要素のみバネに変換していました.
-変更: phnファイル内にSVGデータをコメントアウトした状態で出力するようにしました.
-      万が一変換前のSVGファイルを紛失しても、phnファイル内からその情報を得ることができます.
-      (phn_output.py内に記述した ORIGINAL_SVG_DATA_OUTPUT の値を False にすると出力しません.)
-変更: 平面の色を, ストロークプロパティ(stroke)ではなくフィルプロパティ(fill)で設定するようにしました.
-      基本的にはstrokeの値には依存しません.
-      例外として, fillがnoneの場合は, strokeで指定された色の境界線を持つ平面が作成されます.
-      example.svg 及び example.phn を御覧ください.
-改善: 楕円弧を、指定した角度(デフォルトで3度)毎に頂点を持つ線分の集まりに変換するようにしました.
-      これにより、多くの場合に以前より滑らかに変換されます.
-      角度はphn_output.py内の ARC_NODES_FREQUENCY で変更できます.
-改善: Python3.0でも動作するようにしました (Python 3.0.1で動作確認済み).
-      動作確認済みのPython:
-      * Python 2.5.4
-        <span style="color:gray; font-style:italic">(r254:67916, Dec 23 2008, 15:10:54)[MSC v.1310 32 bit (Intel)] on win32 </span>
-          テストのassertAlmostEquals()が
-          listに非対応のためにTypeErrorが発生しますが、本体は動作します.
-      * Python 2.6.5
-        <span style="color:gray; font-style:italic">(r265:79096, Mar 19 2010, 21:48:26) [MSC v.1500 32 bit (Intel)] on win32 </span>
-          本プロジェクトは主に Python 2.6.5で動作確認しています.
-          (現時点のInkscapeの最新版(0.48)に同梱されているのがこのバージョンの為)
-      * Python 3.0.1
-        <span style="color:gray; font-style:italic">(r301:69561, Feb 13 2009, 20:04:18) [MSC v.1500 32 bit (Intel)] on win32 </span>
-修正: 小さなバグ(主に例外処理)を幾つか修正しました.
-      以前のバージョンでは変換に失敗していた可能性があります.
-変更: example.svg の内容を変更しました.
+    <section class="release" id="v0_0_4">
+      <div class="release-heading">
+        <h2>v0.0.4</h2>
+        <time datetime="2011-02-28">2011-02-28</time>
+        <a href="./zip/phn_output_v0.0.4_2011_02_28_20_29.zip" download aria-label="v0.0.4のZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>新規: 交差しない複合パスに対応しました.</li>
+        <li>変更: xml.etree.ElementTree の代わりにxml.dom.minidomを使用するようにしました。<br>
+          動作確認済みのPythonに下記を追加:<br>
+          * Python 2.4.4<br>
+          <small>(#71, Oct 18 2006, 08:34:43) [MSC v.1310 32 bit (Intel)] on win32 </small></li>
+        <li>修正: アタッチメント(バネやヒンジなど)の接続判定や穴あきの図形の判定が誤る可能性のあったバグを修正しました.</li>
+        <li>改善: 全般的にリファクタリングを行いました (継続的に開発を行なうため).</li>
+        <li>変更: example.svgを少し手直ししました. 気になる場合は下記を御覧ください.<br>
+          ・平面の位置を変更<br>
+          ・緑色の平面の不透明度を最大に<br>
+          ・グリッドを表示<br>
+          ・「境界枠のエッジの中間点から中間点にスナップ(下図参照)」をオンに(こうすることで、グリッドを非表示でもある程度スナップします)<br>
+          <img src="./images/others/snap_midpoint.png" width="176" height="77" loading="lazy" alt="境界枠の中間点へのスナップ設定"><br>
+          ・ヒンジのマーカーの位置を変更 (中心でスナップしやすいように)</li>
+      </ul>
+    </section>
 
-=== <a id="v0_0_2b" href="./zip/phn_output_v0.0.2b_2011_02_13_22_10.zip">phn_output_v0.0.2b (zipファイル)</a>, 2011-02-13 ===
-変更: 平面の境界線をオフにしました (drawBorderをfalseにしました).
-修正: 楕円が変換できないバグを修正しました.
+    <section class="release" id="v0_0_3">
+      <div class="release-heading">
+        <h2>v0.0.3</h2>
+        <time datetime="2011-02-19">2011-02-19</time>
+        <a href="./zip/phn_output_v0.0.3_2011_02_19_19_42.zip" download aria-label="v0.0.3のZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>新規: モーター ← marker-start要素を持つ真円</li>
+        <li>改善: 自己交差したパスで記述されたpathに対応しました.<br>
+          (複合パスで記述された図形には未対応です.)</li>
+        <li>改善: polygon要素をポリゴンに変換するようにしました.<br>
+          (前のバージョンまでは, path要素のみポリゴンに変換していました.)</li>
+        <li>改善: path要素で作成した線分(2点のみのpath)をバネに変換するようにしました.<br>
+          (前のバージョンまでは, line要素のみバネに変換していました.</li>
+        <li>変更: phnファイル内にSVGデータをコメントアウトした状態で出力するようにしました.<br>
+          万が一変換前のSVGファイルを紛失しても、phnファイル内からその情報を得ることができます.<br>
+          (phn_output.py内に記述した ORIGINAL_SVG_DATA_OUTPUT の値を False にすると出力しません.)</li>
+        <li>変更: 平面の色を, ストロークプロパティ(stroke)ではなくフィルプロパティ(fill)で設定するようにしました.<br>
+          基本的にはstrokeの値には依存しません.<br>
+          例外として, fillがnoneの場合は, strokeで指定された色の境界線を持つ平面が作成されます.<br>
+          example.svg 及び example.phn を御覧ください.</li>
+        <li>改善: 楕円弧を、指定した角度(デフォルトで3度)毎に頂点を持つ線分の集まりに変換するようにしました.<br>
+          これにより、多くの場合に以前より滑らかに変換されます.<br>
+          角度はphn_output.py内の ARC_NODES_FREQUENCY で変更できます.</li>
+        <li>改善: Python3.0でも動作するようにしました (Python 3.0.1で動作確認済み).<br>
+          動作確認済みのPython:<br>
+          * Python 2.5.4<br>
+          <small>(r254:67916, Dec 23 2008, 15:10:54)[MSC v.1310 32 bit (Intel)] on win32 </small><br>
+          テストのassertAlmostEquals()がlistに非対応のためにTypeErrorが発生しますが、本体は動作します.<br>
+          * Python 2.6.5<br>
+          <small>(r265:79096, Mar 19 2010, 21:48:26) [MSC v.1500 32 bit (Intel)] on win32 </small><br>
+          本プロジェクトは主に Python 2.6.5で動作確認しています.<br>
+          (現時点のInkscapeの最新版(0.48)に同梱されているのがこのバージョンの為)<br>
+          * Python 3.0.1<br>
+          <small>(r301:69561, Feb 13 2009, 20:04:18) [MSC v.1500 32 bit (Intel)] on win32 </small></li>
+        <li>修正: 小さなバグ(主に例外処理)を幾つか修正しました.<br>
+          以前のバージョンでは変換に失敗していた可能性があります.</li>
+        <li>変更: example.svg の内容を変更しました.</li>
+      </ul>
+    </section>
 
-=== <a id="v0_0_2a" href="./zip/phn_output_v0.0.2a_2011_02_13_20_56.zip">phn_output_v0.0.2a (zipファイル)</a>, 2011-02-13 ===
-修正: 穴あき図形の重心位置が誤っていたので修正しました.
+    <section class="release" id="v0_0_2b">
+      <div class="release-heading">
+        <h2>v0.0.2b</h2>
+        <time datetime="2011-02-13">2011-02-13</time>
+        <a href="./zip/phn_output_v0.0.2b_2011_02_13_22_10.zip" download aria-label="v0.0.2bのZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>変更: 平面の境界線をオフにしました (drawBorderをfalseにしました).</li>
+        <li>修正: 楕円が変換できないバグを修正しました.</li>
+      </ul>
+    </section>
 
-=== <a id="v0_0_2" href="./zip/phn_output_v0.0.2_2011_02_13_17_36.zip">phn_output_v0.0.2 (zipファイル)</a>, 2011-02-13 ===
-新規: バネ     ← line要素 (path要素ではなくline要素限定なので注意)
-新規: ヒンジ   ← 中点マーカー付きの真円形 (マーカーの種類は関係なし)
-新規: レーザー ← 終点マーカー付きのline要素 (pathではなくline限定)
-改善: 出力する座標の削減.
-      直線部で、SVGデータとして点が存在しない場合は点を出力しないようにしました.
-      直線上の点は、Phun/Algodooが自動で補完します.
-改善: example.svg を少しシンプルに変更.
-改善: example.svg の要素のidをわかり易い名前に変更(idの値は変換結果に影響しません).
-改善: ソースコードの全般的なリファクタリング (継続的に開発を行なうため).
-改善: Inkscapeに同梱されたソースコードからの独立.
-      依存しなくなったので、Inkscapeをダウンロードしなくても利用できます.
-      ※要Python.
-      Python 2.6.5で動作確認しています.
-      Python 2.5で内蔵されるようになったetreeモジュールを使用しています.
-      Python 3系では動きません。
-      コマンドラインから利用する場合のコマンド例:
-        python26 input.svg &gt; output.phn
-改善: 警告の表示を少し変更. スクリプトの行番号を表示します.
-修正: 平面の色を修正 (v0.01で常に黒色になっていたので).
+    <section class="release" id="v0_0_2a">
+      <div class="release-heading">
+        <h2>v0.0.2a</h2>
+        <time datetime="2011-02-13">2011-02-13</time>
+        <a href="./zip/phn_output_v0.0.2a_2011_02_13_20_56.zip" download aria-label="v0.0.2aのZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>修正: 穴あき図形の重心位置が誤っていたので修正しました.</li>
+      </ul>
+    </section>
 
+    <section class="release" id="v0_0_2">
+      <div class="release-heading">
+        <h2>v0.0.2</h2>
+        <time datetime="2011-02-13">2011-02-13</time>
+        <a href="./zip/phn_output_v0.0.2_2011_02_13_17_36.zip" download aria-label="v0.0.2のZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>新規: バネ ← line要素 (path要素ではなくline要素限定なので注意)</li>
+        <li>新規: ヒンジ ← 中点マーカー付きの真円形 (マーカーの種類は関係なし)</li>
+        <li>新規: レーザー ← 終点マーカー付きのline要素 (pathではなくline限定)</li>
+        <li>改善: 出力する座標の削減.<br>
+          直線部で、SVGデータとして点が存在しない場合は点を出力しないようにしました.<br>
+          直線上の点は、Phun/Algodooが自動で補完します.</li>
+        <li>改善: example.svg を少しシンプルに変更.</li>
+        <li>改善: example.svg の要素のidをわかり易い名前に変更(idの値は変換結果に影響しません).</li>
+        <li>改善: ソースコードの全般的なリファクタリング (継続的に開発を行なうため).</li>
+        <li>改善: Inkscapeに同梱されたソースコードからの独立.<br>
+          依存しなくなったので、Inkscapeをダウンロードしなくても利用できます.<br>
+          ※要Python.<br>
+          Python 2.6.5で動作確認しています.<br>
+          Python 2.5で内蔵されるようになったetreeモジュールを使用しています.<br>
+          Python 3系では動きません。<br>
+          コマンドラインから利用する場合のコマンド例:<br>
+          python26 input.svg &gt; output.phn</li>
+        <li>改善: 警告の表示を少し変更. スクリプトの行番号を表示します.</li>
+        <li>修正: 平面の色を修正 (v0.01で常に黒色になっていたので).</li>
+      </ul>
+    </section>
 
-=== <a id="v0_01" href="./zip/phn_output_v0.01_2011_02_09_00_10.zip">phn_output_v0.01 (zipファイル)</a>, 2011-02-09 ===
-【変換内容】
-ポリゴン   ← path要素, 変形したrect/circle/ellipse要素.
-ボックス   ← rect要素 (角が丸かったり、transformにより平行四辺形になっている場合はpath.
-サークル   ← circle/ellipse/path要素で作成した真円形.
-              ※ Inkscape以外で作成したpathによる円に非対応.
-              ※ rect要素の角が丸いものは(仮に真円でも)サークルではなくポリゴンに変換.
-平面       ← polyline要素 (最後の2点で位置と傾きを指定).
-トレーサー ← styleにfilter属性付きの真円形.
-              ※ フィルターが付いている以外の条件はサークルと同じ)
-</pre>
+    <section class="release" id="v0_01">
+      <div class="release-heading">
+        <h2>v0.01</h2>
+        <time datetime="2011-02-09">2011-02-09</time>
+        <a href="./zip/phn_output_v0.01_2011_02_09_00_10.zip" download aria-label="v0.01のZIPをダウンロード">ZIPを入手</a>
+      </div>
+      <ul class="notes">
+        <li>ポリゴン ← path要素, 変形したrect/circle/ellipse要素.</li>
+        <li>ボックス ← rect要素 (角が丸かったり、transformにより平行四辺形になっている場合はpath.</li>
+        <li>サークル ← circle/ellipse/path要素で作成した真円形.<br>
+          ※ Inkscape以外で作成したpathによる円に非対応.<br>
+          ※ rect要素の角が丸いものは(仮に真円でも)サークルではなくポリゴンに変換.</li>
+        <li>平面 ← polyline要素 (最後の2点で位置と傾きを指定).</li>
+        <li>トレーサー ← styleにfilter属性付きの真円形.<br>
+          ※ フィルターが付いている以外の条件はサークルと同じ)</li>
+      </ul>
+    </section>
 
-    <hr>
+    <p class="back-link"><a href="#contents">更新履歴の先頭へ</a></p>
+  </main>
 
-    <p>
-      <a href="./index.html">紹介ページへ戻る</a>
-    </p>
-
-    <hr>
-
-    <p>
-      Copyright (C) tatt61880 (たっと) ---- Twitterアカウント <a href="https://twitter.com/tatt61880">@tatt61880</a>
-    </p>
-  </div>
+  <footer class="container site-footer">
+    <span>© tatt61880（たっと）</span>
+    <div>
+      <a href="https://github.com/tatt61880/phn_output">GitHub</a>
+      <a href="https://twitter.com/tatt61880">@tatt61880</a>
+    </div>
+  </footer>
 </body>
 
 </html>
